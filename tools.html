@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<title>Tools | TBD</title>
+	
+	<meta charset="utf-8">
+	<meta name="keywords" content="Gennady Pekhimenko, Computer System, Machine Learning, Computer Science, University of Toronto"/>
+	<meta name="description" content="Group Webpage for ECOSystem">
+	<meta name="author" content="Andrew Pelegris, Bojian Zheng">
+	<meta name="viewpoint" content="width=device-width, initial-scale=1">
+	<link rel="icon" href="./images/uoft.png">
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" 
+		integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="ecosystem.css">
+	<link rel="stylesheet" type="text/css" href="tbd.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+	<script src="https://www.w3schools.com/lib/w3.js"></script>
+	<script src="https://use.fontawesome.com/fd789ca0f7.js"></script>
+
+</head>
+
+<body>
+
+	<div w3-include-html="./components/ecosystem-titlebar.html"></div>
+
+	<main id="content" role="main" class="doc">
+		<div class="container">
+		    <br><br>
+		    <h2>Tools</h2>
+		    <br>
+		
+			<div class="container">
+			
+				<div class="section" id="memory-profilers">
+					<div>
+						<h3>Memory Profilers</h3>
+					</div>
+					
+					<div>
+						<p>We build memory profilers for TensorFlow, MXNet and CNTK. 
+						The goal of a memory profiler is to show the breakdown of the bulk of GPU 
+						allocated memory involved in DNN training. We classify allocations 
+						according to functionality, including
+						<ol>
+						<li>Weights: model weights.</li>
+						<li>Gradients: calculated in the backward pass, often has equal size with Weights.</li>
+						<li>Activations (or feature maps): intermediate results 
+						generated in the forward pass and reused in the backward pass. This is the major consumer of GPU memory.</li>
+						<li>Workspace: temporary space allocated for detailed implementations of operations 
+						(e.g. matrix multiplications, convolutions).</li>
+						<li>Dynamic: (explained bellow).</li>
+						</ol>
+						</p>
+
+						<div>
+							<h4>How the memory profiler works</h4>
+						</div>
+						<p>To achieve this goal, a memory profiler needs to log each memory 
+						allocation issued by the framework (which necessitates making changes 
+						to framework code) and tag each allocation with the following 
+						information at a minimum:</p>
+						
+						<ol>
+						<li>The size of the allocated memory.</li>
+						<li>The type of the associated data structure (as above).</li>
+						</ol>
+
+						<p>Generally, each framework employs a wrapper around low-level 
+						memory allocation calls, such as cudaMalloc(...). Unfortunately, the
+						latter information is usually not directly accessible from the wrapper.
+						To obtain this information, we must trace the call stack up to where 
+						the type of the data structure is known and pass that information back 
+						down to the wrapper. The definitions of all functions on the stack in 
+						between must be altered.</p>
+
+						<p>Unfortunately, due to the complexity of the code, it is often very 
+						difficult to trace the call stack and find the right place to pass 
+						functionality information. The allocation wrapper function may be 
+						called in the initialization function of a tensor, which is invoked 
+						in an enormous number of places, and only a small portion of 
+						initializations actually trigger memory allocation. Through research 
+						and careful analysis on the framework codebases and with additional 
+						hacking skills, we manage to attach the correct functionality 
+						information to most of the memory allocations, though there are still 
+						potentially unclassified allocations that have not been accounted for 
+						yet. This issue can be incrementally fixed as we test the memory 
+						profiler with more training cases.</p>
+
+						<p>The core code of TensorFlow, MXNet and CNTK are all written in 
+						C/C++. Since all of them support bindings with python, memory 
+						allocations may be triggered implicitly from python (especially for MXNet). To capture all 
+						these allocations and tag them with the correct functionality 
+						information likely requires a complete restructure of the framework 
+						code. Our memory profilers are not yet able to classify them. 
+						As we noticed most of them are generated during the training epochs, while
+						Weights, Gradients, Activations are mostly initialized before training starts, 
+						We assign these allocations with a new type called "Dynamic".</p>
+
+						<p>After obtaining the memory allocation log, it can then be parsed 
+						by a simple python program that outputs the allocation breakdown results. 
+						The python program can easily tell the functionality of a data 
+						structure if the proper keywords are attached. We aim to 
+						open source our modified version of the frameworks with memory 
+						profiling capability, alongside our python parsers soon.</p>
+
+						<div>
+							<h4>Example results</h4>
+						</div>
+						<p>Here are two examples from Inception and Deep Speech 2 that show the results of our memory profiling. 
+						<br>
+						<br>
+						<img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" 
+							src="./images/sigmetrics18/memory_inception.png">
+						<img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" 
+							src="./images/sigmetrics18/memory_DS2.png">
+						<br>
+						Notice that the memory consumption calculated by our memory profiler, will be 
+						less then the real memory consumption (one can check using nvidia-smi). The major
+						reason is the memory paging. The page size is 2MB. Each memory
+						allocation might cause some waste in the a page, and the waste accumulated will
+						make the calculated memory consumption a few hundred MB off than the real memory consumption.
+					</div>
+					<br><br>
+				</div>
+			</div>
+		</div>
+	</main>
+    <footer class="container-fluid text-center bg-lightgray">
+        <span class="copyrights" style="margin-top:25px;">
+			<br><br>
+            <p>EcoSystem Group © <script type="text/javascript">document.write(new Date().getFullYear());</script>
+            <br>
+            <span>University of Toronto</span></p>
+        </span>
+</footer>
+
+	<script>w3.includeHTML();</script>
+
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" 
+		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" 
+		crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" 
+		integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" 
+		crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" 
+		integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" 
+		crossorigin="anonymous"></script>
+
+</body>
+</html>

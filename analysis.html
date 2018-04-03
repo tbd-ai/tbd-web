@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<title>Analysis | TBD</title>
+	
+	<meta charset="utf-8">
+	<meta name="keywords" content="Gennady Pekhimenko, Computer System, Machine Learning, Computer Science, University of Toronto"/>
+	<meta name="description" content="Group Webpage for ECOSystem">
+	<meta name="author" content="Andrew Pelegris, Bojian Zheng">
+	<meta name="viewpoint" content="width=device-width, initial-scale=1">
+	<link rel="icon" href="./images/uoft.png">
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" 
+		integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="ecosystem.css">
+	<link rel="stylesheet" type="text/css" href="tbd.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+	<script src="https://www.w3schools.com/lib/w3.js"></script>
+	<script src="https://use.fontawesome.com/fd789ca0f7.js"></script>
+
+</head>
+
+<body>
+
+	<div w3-include-html="./components/ecosystem-titlebar.html"></div>
+
+	<main id="content" role="main" class="doc">
+		<div class="container">
+		  <br><br>
+		  <h2>Analysis</h2>
+		  <br>
+		
+			<div class="container">
+			
+				<div class="section" id="methodology">
+					<div>
+						<h3>Methodology</h3>
+					</div>
+					
+					<div>
+						We collect profile data using nvprof. A typical example looks like this:
+						<br><br>
+						<code>/usr/local/cuda/bin/nvprof --profile-from-start off --export-profile profiler_output.nvvp -f --print-summary python program.py --program-args</code>
+						<br><br>
+						Likewise, we also collect floating-point utilization data:
+						<br><br>
+						<code>/usr/local/cuda/bin/nvprof --profile-from-start off --export-profile profiler_output_fp32.nvvp -f --print-summary --metrics single_precision_fu_utilization python program.py --program-args </code>
+					</div>
+					<br><br>
+					
+					<div class="container">
+						<div class="section" id="gpu-occupancy">
+							<div>
+								<h4>Delayed Profiling</h4>
+							</div>
+							
+							<div>
+								Since neural network libraries may include tuning
+								operations at the start of training, we wait 
+								multiple iterations before turning on profiling 
+								for obtaining a representative sample of the
+								training process.
+								
+								With python, we use the numba library to control
+								when profiling samples are taken.
+								
+								<br><br>
+								<code>
+								import numba.cuda as cuda
+								</code>
+								
+								<br><br> 
+								We call <code>cuda.profile_start()</code> to begin the profiling, and
+								<code>cuda.profile_stop()</code> to end
+								profiling. Due to the facts that the generated profile files can 
+								become large and each training iteration follows the same computation
+								logic, the profiling period is usually chosen
+								to be only a small number of iterations. Moreover,
+								we carefully choose a period that only includes
+								only training computations, without validation. After cuda.profile_stop() is hit,
+								the training process can be safely killed by Ctrl+c. The .nvvp file
+								exported by the <code>--export-profile</code> option can be viewed by NVidia Visual Profiler
+								for further analysis.
+							</div>
+						</div>
+						<br><br>
+						
+						<div class="section" id="throughput">
+							<div>
+								<h4>Throughput</h4>
+							</div>
+							
+							<div>
+								Throughput measures the number of training cases or
+								samples, where applicable, that are processed per 
+								second during training. Most benchmarks already
+								output some throughput statistics without our
+								intervention and nvprof is not involved in calculating this metric.
+								When computing throughput, we are careful to only
+								measure during training iterations and to exclude
+								validation time and computation.
+							
+								<br>
+								<br>
+								<img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" 
+									src="./images/sigmetrics18/throughput_resnet.png">
+								<img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500"
+									src="./images/sigmetrics18/throughput_DS2.png">
+							</div>
+						</div>
+						<br><br>
+						
+						<div class="section" id="gpu-occupancy">
+							<div>
+								<h4>Compute Utilization</h4>
+								<div class="margin-bottom-20">
+								</div>
+							</div>
+							
+							<div>
+								GPU compute utilization measures the relative amount of time 
+								that the GPU spends actively running kernels. NVidia Visual Profiler provides this
+								information directly, but the number should be updated with the profiling overhead time excluded.
+								
+								<br>
+								<br>
+								<img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" 
+									src="./images/sigmetrics18/occupation_transformer.png">
+								<img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" 
+									src="./images/sigmetrics18/occupation_wgan.png">
+							</div>
+						</div>
+						<br><br>
+						
+						<div class="section" id="fp-utilization">
+							<div>
+								<h4>Floating-Point Utilization</h4>
+							</div>
+							
+							<div>
+								GPU floating point utilization quantifies how busy
+								the GPU's floating-point compute units are during
+								training. This is informative since floating-point 
+								arithmetic comprises the majority of computation
+								in all benchmarks. This is reported by the
+								profiler when run with the <code>--metrics single_precision_fu_utilization</code>
+								option as above.
+								
+								The profiler generates the FP32 utilization for each individual kernel. We calculate a weighted sum
+								over all kernels for the overall FP32 utilization of the training. We can also
+								find out which kernels are long but with low utilization. These kernels are to be optimized with
+								high priority if necessary.
+								<br>
+								<br>
+								<img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" 
+									src="./images/sigmetrics18/utilization_resnet.png">
+								<img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" 
+									src="./images/sigmetrics18/utilization_a3c.png">
+								
+							</div>
+						</div>
+						<br><br>
+
+						<div class="section" id="sensitivity">
+							<div>
+								<h4>Hardware Sensitivity</h4>
+							</div>
+							
+							<div>
+								<p>We studied how the performance of DNN training is affected by the hardware used. We used TitanXp for comparison against Quadro P4000. Detailed hardware specifications of these two types GPU are shown following:</p>
+								<br>
+								<table style="width:100%">
+								  <tr>
+									<th></th>
+									<th># of Multi-processors</th> 
+									<th>Core count</th>
+									<th>Max Clock Rate (MHz)</th>
+									<th style="padding:0 5px 0 0px;">Memory Size (GB)</th>
+									<th style="padding:0 5px 0 0px;">LLC Size (MB)</th>
+									<th style="padding:0 5px 0 0px;">Memory Bus Type</th>
+									<th style="padding:0 5px 0 0px;">Memory BW (GB/s)</th>
+									<th>Bus Interface</th>
+									<th>Memory Speed (MHz)</th>
+								  </tr>
+								  <tr>
+									<td style="padding:0 15px 0 0px;">TitanXp</td>
+									<td>30</td> 
+									<td>3840</td>
+									<td>1582</td>
+									<td>12</td>
+									<td>3</td>
+									<td>GDDR5X</td>
+									<td>547.6</td>
+									<td>PCIe 3.0</td>
+									<td>5705</td>
+								  </tr>
+								  <tr>
+									<td>P4000</td>
+									<td>14</td> 
+									<td>1792</td>
+									<td>1480</td>
+									<td>8</td>
+									<td>2</td>
+									<td>GDDR5</td>
+									<td>243</td>
+									<td>PCIe 3.0</td>
+									<td>3802</td>
+								  </tr>
+								</table>
+
+								<br>
+								We compare the training throughput, GPU utilization and FP32 utilization. The results show that despite the more advanced GPU (TitanXp) deliver better training throughput, its compute resources are under-utilized.
+								
+								<br>
+								<br>
+								<img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-340" 
+									src="./images/sigmetrics18/throughput_comparison_TF-1.png">
+								<img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-340" 
+									src="./images/sigmetrics18/occupation_comparison_TF-1.png">
+								<img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-340" 
+									src="./images/sigmetrics18/utilization_comparison_TF-1.png">
+								
+							</div>
+						</div>
+						<br><br>
+
+						<div class="section" id="distributed">
+							<div>
+								<h4>Distributed Training</h4>
+							</div>
+							
+							<div>
+								Training large DNNs can be done faster when multiple GPUs and/or multiple
+								machines are used. This is usually achieved by using data parallelism, where
+								mini-batches are split between individual GPUs and the results are then merged.
+								We studied how the scalability is affected by the network bandwidth. We tested
+								the training of ResNet-50 on MXNet on both multi-GPU and multi-machine environments.
+								Our prilimary results show that the bandwidth of ethernet will greatly lower the
+								overall training performance.
+								
+								<br>
+								<br>
+								<img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" 
+									src="./images/sigmetrics18/throughput-networking.png">
+								
+							</div>
+						</div>
+					</div>
+					
+				</div>
+				<br><br>
+				
+			</div>
+		</div>
+	</main>
+    <footer class="container-fluid text-center bg-lightgray">
+        <span class="copyrights" style="margin-top:25px;">
+			<br><br>
+            <p>EcoSystem Group © <script type="text/javascript">document.write(new Date().getFullYear());</script>
+            <br>
+            <span>University of Toronto</span></p>
+        </span>
+</footer>
+
+	<script>w3.includeHTML();</script>
+
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" 
+		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" 
+		crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" 
+		integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" 
+		crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" 
+		integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" 
+		crossorigin="anonymous"></script>
+
+</body>
+</html>

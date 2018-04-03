@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<title>Datasets | TBD</title>
+	
+	<meta charset="utf-8">
+	<meta name="keywords" content="Gennady Pekhimenko, Computer System, Machine Learning, Computer Science, University of Toronto"/>
+	<meta name="description" content="Group Webpage for ECOSystem">
+	<meta name="author" content="Andrew Pelegris, Bojian Zheng">
+	<meta name="viewpoint" content="width=device-width, initial-scale=1">
+	<link rel="icon" href="./images/uoft.png">
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" 
+		integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="ecosystem.css">
+	<link rel="stylesheet" type="text/css" href="tbd.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+	<script src="https://www.w3schools.com/lib/w3.js"></script>
+	<script src="https://use.fontawesome.com/fd789ca0f7.js"></script>
+
+</head>
+
+<body>
+
+	<div w3-include-html="./components/ecosystem-titlebar.html"></div>
+
+	<main id="content" role="main" class="doc">
+		<div class="container">
+		  <br><br>
+		  <h2>Datasets</h2>
+		  <br>
+		
+		  <table class="table table-hover">
+			<thead>
+			  <tr style="font-size: 20px;">
+				<th>Dataset</th>
+				<th>Number of Samples</th>
+				<th>Size</th>
+				<th>Special</th>
+			  </tr>
+			</thead>
+			<tbody>
+			  <tr>
+				<td>ImageNet1K</td>
+				<td>1.2M</td>
+				<td>3x256x256 per image</td>
+				<td>N/A</td>
+			  </tr>
+			  <tr>
+				<td>IWSLT15</td>
+				<td>133k</td>
+				<td>20-30 words long per sentence on avg.</td>
+				<td>vocabulary size of 17188</td>
+			  </tr>
+			  <tr>
+				<td>Pascal VOC 2007</td>
+				<td>5011</td>
+				<td>around 500x300 per image</td>
+				<td>12608 annotated objects</td>
+			  </tr>
+			  <tr>
+				<td>LibriSpeech</td>
+				<td>280k</td>
+				<td>1000 hours in total</td>
+				<td>N/A</td>
+			  </tr>
+			  <tr>
+				<td>Downsampled ImageNet</td>
+				<td>1.2M</td>
+				<td>3x64x64 per image</td>
+				<td>N/A</td>
+			  </tr>
+			  <tr>
+				<td>Gym</td>
+				<td>N/A</td>
+				<td>210x160x3 per image (Pong)</td>
+				<td>Game dependent</td>
+			  </tr>
+			</tbody>
+		  </table>
+		<!-- Details about each model-->
+		<div class="container">
+		
+			<div class="dataset" id="image-net">
+				<div>
+					<h3>ImageNet1K</h3>
+					<div class="margin-bottom-20">
+					</div>
+				</div>
+
+				<div class="links margin-bottom-10">
+				  <a href="http://image-net.org/challenges/LSVRC/2012/" target="_blank" class="link-style">Homepage&nbsp;<span class="fa fa-link"></span></a>
+				</div>
+					
+				<div>
+					This classical dataset features a collection of 1.2 million labeled 
+					images with one thousand object categories used for
+					training data in the image-net competition. The main task
+					in the competition is to classify the object inside an image. The size of all the raw images combined is around 133G.
+					To train a model for this dataset can be very time-consuming. For example, training this dataset with ResNet-50 model for 90 epochs on a NVIDIA M40 GPU can take 2 weeks.
+				</div>
+			</div>
+			<br><br>
+			
+			<div class="dataset" id="iwslt">
+				<div>
+					<h3>International Workshop on Spoken Language Translation (IWSLT)</h3>
+					<div class="margin-bottom-20">
+					</div>
+				</div>
+
+				<div class="links margin-bottom-10">
+				  <a href="http://workshop2015.iwslt.org/" target="_blank" class="link-style">Homepage&nbsp;<span class="fa fa-link"></span></a>
+				</div>
+					
+				<div>
+					This is a machine translation dataset that is focused on the automatic
+					transcription and translation of TED and TEDx talks, i.e.
+					public speeches covering many different topics. 
+					Compared with the WMT dataset which will be mentioned below, this dataset
+					is relatively small (the corpus has 130K sentences) and 
+					therefore should be able to achieve decent BLEU score fast (in several hours).
+				</div>
+			</div>
+			<br><br>
+			
+			<div class="dataset" id="wmt">
+				<div>
+					<h3>Workshop on Statistical Machine Translation (WMT)</h3>
+					<div class="margin-bottom-20">
+					</div>
+				</div>
+
+				<div class="links margin-bottom-10">
+				    <a href="http://www.statmt.org/wmt14/translation-task.html" target="_blank" class="link-style">Homepage&nbsp;<span class="fa fa-link"></span></a>
+				</div>
+					
+				<div>
+					This is a machine translation dataset composed from a
+					collection of various sources, including news commentaries
+					and parliament proceedings. The corpus file has around 4M sentences.
+					Full training of the model will take at least one day.
+				</div>
+			</div>
+			<br><br>
+			
+			<div class="dataset" id="voc">
+				<div>
+					<h3>PASCAL Visual Object Classes (VOC)</h3>
+					<div class="margin-bottom-20">
+					</div>
+				</div>
+
+				<div class="links margin-bottom-10">
+				  <a href="http://host.robots.ox.ac.uk/pascal/VOC/" target="_blank" class="link-style">Homepage&nbsp;<span class="fa fa-link"></span></a>
+				</div>
+					
+				<div>
+					This dataset, produced by a group at Oxford University,
+					includes image data for both segmentation and object detection 
+					tasks. Given an input image, The segmentation task is to essentially determine for each pixel which object (or background) it belongs to,
+					and the object detection task is to draw a bounding box for each object in the image and classify each object. The number of classes in VOC07 is 20.
+					In TBD we use the object detection task.
+				</div>
+			</div>
+			<br><br>
+			
+			<div class="dataset" id="librispeech">
+				<div>
+					<h3>LibriSpeech ASR</h3>
+					<div class="margin-bottom-20">
+					</div>
+				</div>
+
+				<div class="links margin-bottom-10">
+				  <a href="http://www.openslr.org/12/" target="_blank" class="link-style">Homepage&nbsp;<span class="fa fa-link"></span></a>
+				</div>
+					
+				<div>
+					LibriSpeech is a speech recognition dataset derived from
+					audiobook recordings containing
+					approximately one thousand hours of 16kHz read English speech. The dataset contains about 280 thousand audio files, each labeled with the corresponding text.
+					The dataset is divided into three parts: a 100-hour set, a 360-hour set, and a 500-hour set. 
+					The total size of all the decompressed training data can be up to about 167GB.
+				</div>
+			</div>
+			<br><br>
+			
+			<div class="dataset" id="openai-gym">
+				<div>
+					<h3>OpenAI Gym</h3>
+					<div class="margin-bottom-20">
+					</div>
+				</div>
+
+				<div class="links margin-bottom-10">
+				  <a href="https://gym.openai.com/" target="_blank" class="link-style">Homepage&nbsp;<span class="fa fa-link"></span></a>
+				</div>
+					
+				<div>
+					OpenAI Gym is a toolkit for developing and comparing reinforcement learning algorithms. It supports teaching agents everything from walking to playing various games and simulations. It comes with a diverse suite of environments that range from easy to difficult and involve many different kinds of environments such as classic control tasks, algorithmic tasks, Atari games and 2D and 3D robot simulations. 
+				</div>
+			</div>
+			<br><br>
+          
+		</div>
+		</div>
+	</main>
+    <footer class="container-fluid text-center bg-lightgray">
+        <span class="copyrights" style="margin-top:25px;">
+			<br><br>
+            <p>EcoSystem Group © <script type="text/javascript">document.write(new Date().getFullYear());</script>
+            <br>
+            <span>University of Toronto</span></p>
+        </span>
+</footer>
+
+	<script>w3.includeHTML();</script>
+
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" 
+		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" 
+		crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" 
+		integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" 
+		crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" 
+		integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" 
+		crossorigin="anonymous"></script>
+
+</body>
+</html>
