@@ -94,11 +94,12 @@
 								Throughput measures the number of training cases or
 								samples, where applicable, that are processed per 
 								second during training. Most benchmarks already
-								output some throughput statistics without our
-								intervention and nvprof is not involved in calculating this metric.
-								When computing throughput, we are careful to only
-								measure during training iterations and to exclude
-								validation time and computation.
+								have throughput statistics output in training logs without additional
+								work. For Deep Speech 2, which has no training throughput numbers
+								logged directly, we measure the sum of all data samples between two
+								time stamps in the training logs. As the lengths of the data samples vary
+								a lot, to measure training throughput od Deep Speech 2, we use the 
+								total length of data samples instead of simple count.
 							
 								<br>
 								<br>
