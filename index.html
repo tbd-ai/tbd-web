@@ -6,6 +6,9 @@
 	<title>TBD - Training Benchmark for DNNs</title>
 	
 	<meta charset="utf-8">
+	<meta name="keywords" content="Gennady Pekhimenko, Computer System, Machine Learning, Computer Science, University of Toronto"/>
+	<meta name="description" content="Group Webpage for ECOSystem">
+	<meta name="author" content="Andrew Pelegris, Bojian Zheng">
 	<meta name="viewpoint" content="width=device-width, initial-scale=1">
 	<link rel="icon" href="./images/uoft.png">
 	
@@ -22,33 +25,34 @@
 
 <body>
 
-	<div w3-include-html="./components/tbd-titlebar.html"></div>
+	<div w3-include-html="./components/ecosystem-titlebar.html"></div>
 
 	<main id="content" role="main" class="doc">
 		<div class="container">
 		  <br><br>
 		  <h2>TBD - Training Benchmark for DNNs</h2>
-		  <p>TBD is a new benchmark suite for DNN training that currently covers six major application domains and eight different state-of-the-art models.
-                     The applications in this suite are selected based on extensive conversations with ML developers and users from both industry and academia. 
-                     For all application domains we select recent models capable of delivering state-of-the-art results.
-                     We intend  to continually expand TBD with new applications and models based on feedback and support from the community.
-                  </p>
-                  <br>
-                  <p>This is a joint project between the <a href="http://www.cs.toronto.edu/ecosystem/index.html">EcoSystem Research Group</a> at University of Toronto and <a href="https://www.microsoft.com/en-us/research/project/fiddle/">Project Fiddle</a> at Microsoft Research, Redmond. <br> 
-                  We also have collaborators from UBC and University of Michigan.
-                  </p>
-                  <br>
+		  <p>We create a new benchmark
+suite for DNN training that currently covers six major application
+domains and eight different state-of-the-art models.
+The applications in this suite are selected based on extensive
+conversations with ML developers and users from both industry
+and academia. For all application domains we select
+recent models capable of delivering state-of-the-art results.
+We intend  to continually expand TBD with new applications and models based on feedback and support from the community.</p>
+<br>
+<p>This is a joint project between the EcoSystem Research group, University of Toronto and Microsoft Research, Redmond. We also have collaborators from UBC and University of Michigan.</p>
+<br>
 <div id='toolbar'>
 	<div class='wrapper text-center'>
 		<div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
 		  <div class="btn-group margin-left" role="group" aria-label="First group">
-			<button type="button" class="btn btn-secondary" target="_blank" onclick="location.href = 'https://arxiv.org/abs/1803.06905';">Read Full Arxiv Paper</button>
+			<button type="button" class="btn btn-secondary" target="_blank" onclick="location.href = 'https://arxiv.org/abs/1803.06905';">Read the paper</button>
 		  </div>
 		  <div class="btn-group margin-middle" role="group" aria-label="First group">
 			<button type="button" class="btn btn-secondary" target="_blank" data-toggle="modal" data-target="#BibTeXModal">BibTeX Reference</button>
 		  </div>
 		  <div class="btn-group margin-right" role="group" aria-label="Second group">
-			<button type="button" class="btn btn-secondary" target="_blank" onclick="location.href = 'http://www.sysml.cc/doc/167.pdf';">SysML Short Paper</button>
+			<button type="button" class="btn btn-secondary" target="_blank" onclick="location.href = 'http://www.sysml.cc/doc/167.pdf';">SysML Submission</button>
 		  </div>
 		</div>
 	</div>
@@ -98,7 +102,7 @@
 				<td>Image classification</td>
 				<td>ResNet-50<br>Inception-v3</td>
 				<td>50 (152 max)<br>42</td>
-				<td>CONV</td>
+				<td>50 (152 max)<br>CONV</td>
 				<td>TensorFlow, MXNet, CNTK</td>
 				<td>Hongyu Zhu</td>
 			  </tr>
@@ -129,7 +133,7 @@
 			  <tr class='clickable-row' data-href='#adversarial-learning'>
 				<td>Adversarial learning</td>
 				<td>WGAN</td>
-				<td>101+101</td>
+				<td>14+14</td>
 				<td>CONV</td>
 				<td>TensorFlow</td>
 				<td>Andrew Pelegris</td>
@@ -139,7 +143,7 @@
 				<td>A3C</td>
 				<td>4</td>
 				<td>CONV</td>
-				<td>TensorFlow, MXNet</td>
+				<td>MXNet</td>
 				<td>Mohamed Akrout</td>
 			  </tr>
 			</tbody>
@@ -161,7 +165,7 @@
             </div>
 
             <div class="links margin-bottom-10 link-container">
-              <div>TBD repository:&nbsp;<a href="https://github.com/tbd-ai/tbd-suite/tree/master/ImageClassification-Resnet_50" target="_blank" class="link-style">ResNet&nbsp;<span class="fa fa-link"></span></a>&nbsp;&nbsp;&nbsp;<a href="https://github.com/tbd-ai/tbd-suite/tree/master/ImageClassification-Inception_v3" target="_blank" class="link-style">Inception-v3&nbsp;<span class="fa fa-link"></span></a></div>
+              <div>TBD repository:&nbsp;<a href="https://github.com/UofT-EcoSystem/DNN-Training-Suite/tree/master/ImageClassification-Resnet_50" target="_blank" class="link-style">ResNet&nbsp;<span class="fa fa-link"></span></a>&nbsp;&nbsp;&nbsp;<a href="https://github.com/UofT-EcoSystem/DNN-Training-Suite/tree/master/ImageClassification-Inception_v3" target="_blank" class="link-style">Inception-v3&nbsp;<span class="fa fa-link"></span></a></div>
               <div>Original models:&nbsp;<a href="https://arxiv.org/abs/1603.05027" target="_blank" class="link-style">ResNet-50&nbsp;<span class="fa fa-link"></span></a>&nbsp;&nbsp;&nbsp;<a href="https://arxiv.org/abs/1512.00567" target="_blank" class="link-style">Inception-v3&nbsp;<span class="fa fa-link"></span></a></div>
               <div><a href="./datasets.html#image-net" target="_blank" class="link-style">Dataset&nbsp;<span class="fa fa-link"></span></a></div>
             </div>
@@ -248,7 +252,7 @@ alternative to recurrent layers.
             </div>
 
             <div class="links margin-bottom-10 link-container">
-              <div>TBD repository:&nbsp;<a href="https://github.com/tbd-ai/tbd-suite/tree/master/MachineTranslation-Seq2Seq/NMT" target="_blank" class="link-style">NMT&nbsp;<span class="fa fa-link"></span></a>&nbsp;&nbsp;&nbsp;<a href="https://github.com/tbd-ai/tbd-suite/tree/master/MachineTranslation-Seq2Seq/Sockeye" target="_blank" class="link-style">Sockeye&nbsp;<span class="fa fa-link"></span></a>&nbsp;&nbsp;&nbsp;<a href="https://github.com/tbd-ai/tbd-suite/tree/master/MachineTranslation-Transformer" target="_blank" class="link-style">Transformer&nbsp;<span class="fa fa-link"></span></a></div>
+              <div>TBD repository:&nbsp;<a href="https://github.com/UofT-EcoSystem/DNN-Training-Suite/tree/master/MachineTranslation-Seq2Seq/NMT" target="_blank" class="link-style">NMT&nbsp;<span class="fa fa-link"></span></a>&nbsp;&nbsp;&nbsp;<a href="https://github.com/UofT-EcoSystem/DNN-Training-Suite/tree/master/MachineTranslation-Seq2Seq/Sockeye" target="_blank" class="link-style">Sockeye&nbsp;<span class="fa fa-link"></span></a>&nbsp;&nbsp;&nbsp;<a href="https://github.com/UofT-EcoSystem/DNN-Training-Suite/tree/master/MachineTranslation-Transformer" target="_blank" class="link-style">Transformer&nbsp;<span class="fa fa-link"></span></a></div>
               <div>Original models:&nbsp;<a href="https://arxiv.org/abs/1409.0473" target="_blank" class="link-style">Seq2Seq&nbsp;<span class="fa fa-link"></span></a>&nbsp;&nbsp;&nbsp;<a href="https://arxiv.org/abs/1706.03762" target="_blank" class="link-style">Transformer&nbsp;<span class="fa fa-link"></span></a></div>
               <div>Datasets:&nbsp;<a href="./datasets.html#iwslt" target="_blank" class="link-style">IWSLT&nbsp;<span class="fa fa-link"></span></a>&nbsp;&nbsp;&nbsp;<a href="./datasets.html#wmt" target="_blank" class="link-style">WMT&nbsp;<span class="fa fa-link"></span></a></div>
             </div>
@@ -335,7 +339,7 @@ work a 101-layer ResNet.
             </div>
 
             <div class="links margin-bottom-10 link-container">
-              <a href="https://github.com/tbd-ai/tbd-suite/tree/master/ObjectDetection-Faster_RCNN" target="_blank" class="link-style"><div>TBD repository&nbsp;<span class="fa fa-link"></span></div></a>
+              <a href="https://github.com/UofT-EcoSystem/DNN-Training-Suite/tree/master/ObjectDetection-Faster_RCNN" target="_blank" class="link-style"><div>TBD repository&nbsp;<span class="fa fa-link"></span></div></a>
               <a href="https://arxiv.org/abs/1506.01497" target="_blank" class="link-style">Original model&nbsp;<span class="fa fa-link"></span></a>
               <a href="./datasets.html#voc" target="_blank" class="link-style">Dataset&nbsp;<span class="fa fa-link"></span></a>
             </div>
@@ -343,17 +347,10 @@ work a 101-layer ResNet.
                     <div class="card mb-0">
                         <h5 class="card-header collapsed" data-toggle="collapse" href="#collapseFasterRCNN">Details of Faster R-CNN</h5>
                         <div id="collapseFasterRCNN" class="card-body collapse" data-parent="#accordion" >
-							<i>MXNet results:</i><br>
-							<i>Training quality</i>: 70+% mAP so far<br>
-							<i>Throughtput</i>: 2.29 samples/sec<br>
-							<i>GPU Compute Utilizaiton</i>: 90.29%<br>
-							<i>FP32 Utilization</i>: 70.9%<br><br>
-
-							<i>TensorFlow results:</i><br>
-							<i>Training quality</i>: 65+% mAP so far<br>
-							<i>Throughtput</i>: 2.32 samples/sec<br>
-							<i>GPU Compute Utilizaiton</i>: 89.41%<br>
-							<i>FP32 Utilization</i>: 58.9%%<br>
+                            <i>Training quality</i>: X%<br>
+							<i>Throughtput</i>: Y samples/sec<br>
+							<i>GPU Compute Utilizaiton</i>: Y%<br>
+							<i>FP32 Utilization</i>: 3.64%
                         </div>
                     </div>
                 </div>
@@ -373,7 +370,7 @@ which use LSTM layers..
             </div>
 
             <div class="links margin-bottom-10 link-container">
-              <a href="https://github.com/tbd-ai/tbd-suite/tree/master/SpeechRecognition-DeepSpeech2" target="_blank" class="link-style"><div>TBD repository&nbsp;<span class="fa fa-link"></span></div></a>
+              <a href="https://github.com/UofT-EcoSystem/DNN-Training-Suite/tree/master/SpeechRecognition-DeepSpeech2" target="_blank" class="link-style"><div>TBD repository&nbsp;<span class="fa fa-link"></span></div></a>
               <a href="https://arxiv.org/abs/1512.02595" target="_blank" class="link-style">Original model&nbsp;<span class="fa fa-link"></span></a>
               <a href="./datasets.html#librispeech" target="_blank" class="link-style">Dataset&nbsp;<span class="fa fa-link"></span></a>
             </div>
@@ -427,7 +424,7 @@ algorithms in the unsupervised learning area.
             </div>
 
             <div class="links margin-bottom-10 link-container">
-              <a href="https://github.com/tbd-ai/tbd-suite/tree/master/UnsupervisedLearning-WGAN" target="_blank" class="link-style"><div>TBD repository&nbsp;<span class="fa fa-link"></span></div></a>
+              <a href="https://github.com/UofT-EcoSystem/DNN-Training-Suite/tree/master/UnsupervisedLearning-WGAN" target="_blank" class="link-style"><div>TBD repository&nbsp;<span class="fa fa-link"></span></div></a>
               <a href="https://arxiv.org/abs/1704.00028" target="_blank" class="link-style">Original model&nbsp;<span class="fa fa-link"></span></a>
               <a href="./datasets.html#image-net" target="_blank" class="link-style">Dataset&nbsp;<span class="fa fa-link"></span></a>
             </div>
@@ -465,7 +462,8 @@ algorithms in the unsupervised learning area.
 			<h3 id="deep-reinforcement-learning">Deep Reinforcement Learning</h3>
                 <div class="margin-bottom-20">
 				
-				Deep neural networks also drive the recent advances in reinforcement learning,
+				Deep neural networks are
+also responsible for recent advances in reinforcement learning,
 which have contributed to the creation of the first artificial agents
 to achieve human-level performance across challenging domains,
 such as the game of Go and various classical computer games. We
@@ -477,7 +475,7 @@ parallel over several processing threads.
             </div>
 
             <div class="links margin-bottom-10 link-container">
-              <a href="https://github.com/tbd-ai/tbd-suite/tree/master/ReinforcementLearning-A3C" target="_blank" class="link-style"><div>TBD repository&nbsp;<span class="fa fa-link"></span></div></a>
+              <a href="https://github.com/UofT-EcoSystem/DNN-Training-Suite/tree/master/ReinforcementLearning-A3C" target="_blank" class="link-style"><div>TBD repository&nbsp;<span class="fa fa-link"></span></div></a>
               <a href="https://arxiv.org/pdf/1602.01783.pdf" target="_blank" class="link-style">Original model&nbsp;<span class="fa fa-link"></span></a>
               <a href="./datasets.html#openai-gym" target="_blank" class="link-style">Dataset&nbsp;<span class="fa fa-link"></span></a>
             </div>
@@ -517,8 +515,16 @@ parallel over several processing threads.
             </div>
           
 		</div>
-        <br><br>
 	</main>
+    <footer class="container-fluid text-center bg-lightgray">
+        <span class="copyrights" style="margin-top:25px;">
+			<br><br>
+            <p>EcoSystem Group © <script type="text/javascript">document.write(new Date().getFullYear());</script>
+            <br>
+            <span>University of Toronto</span></p>
+        </span>
+</footer>
+
 	<script>w3.includeHTML();</script>
 
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" 
