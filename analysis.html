@@ -233,18 +233,28 @@
 							<div>
 								Training large DNNs can be done faster when multiple GPUs and/or multiple
 								machines are used. This is usually achieved by using data parallelism, where
-								mini-batches are split between individual GPUs and the results are then merged.
+								mini-batches are split among individual GPUs and the results are then merged.
 								We studied how the scalability is affected by the network bandwidth. We tested
 								the training of ResNet-50 on MXNet on both multi-GPU and multi-machine environments.
 								Our prilimary results show that the bandwidth of 1Gb/s ethernet will greatly lower the
 								overall training performance, and the bandwitdth of 100Gb/s infiniband is sufficient for
 								delivering good scalability in a multi-machine environment.
 								
+								
 								<br>
 								<br>
 								<img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" 
-									src="./images/sigmetrics18/throughput-networking.png">
+									src="./images/sigmetrics18/multi_machine.jpg">
 								
+								<br>
+								The first level of x-axis shows the per-machine mini-batch size, and
+								the second level of x-axis shows the number of machines. 
+								In the case where multi-GPUs located in the same machine, all GPUs are connected with the host
+								through 6GB/s PCIe bus. It is able to deliver high scalability, but slightly lower throughput.
+								<br>
+								<br>
+								<img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" 
+									src="./images/sigmetrics18/multi_GPU.jpg">
 							</div>
 						</div>
 					</div>
