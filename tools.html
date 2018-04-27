@@ -41,7 +41,7 @@
 						<p>We build memory profilers for TensorFlow, MXNet and CNTK. 
 						The goal of a memory profiler is to show the breakdown of the bulk of GPU 
 						allocated memory involved in DNN training. We classify allocations 
-						according to functionality, including
+						according to data structure, including
 						<ol>
 						<li>Weights: model weights.</li>
 						<li>Gradients: calculated in the backward pass, often has equal size with Weights.</li>
@@ -56,7 +56,7 @@
 						<div>
 							<h4>How the memory profiler works</h4>
 						</div>
-						<p>To achieve this goal, a memory profiler needs to log each memory 
+						<p>Our profiler fhas two steps. The first step is to log each memory 
 						allocation issued by the framework (which necessitates making changes 
 						to framework code) and tag each allocation with the following 
 						information at a minimum:</p>
@@ -65,6 +65,14 @@
 						<li>The size of the allocated memory.</li>
 						<li>The type of the associated data structure (as above).</li>
 						</ol>
+
+						The second step is to process the log using a parser program. The whole profiling stack is shown following:
+
+						<br>
+						<br>
+						<img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-900" 
+							src="./images/sigmetrics18/memory-profiler.png">
+						<br>
 
 						<p>Generally, each framework employs a wrapper around low-level 
 						memory allocation calls, such as cudaMalloc(...). Unfortunately, the
@@ -76,12 +84,12 @@
 
 						<p>Unfortunately, due to the complexity of the code, it is often very 
 						difficult to trace the call stack and find the right place to pass 
-						functionality information. The allocation wrapper function may be 
+						data structure information. The allocation wrapper function may be 
 						called in the initialization function of a tensor, which is invoked 
 						in an enormous number of places, and only a small portion of 
 						initializations actually trigger memory allocation. Through research 
 						and careful analysis on the framework codebases and with additional 
-						hacking skills, we manage to attach the correct functionality 
+						hacking skills, we manage to attach the correct data structure 
 						information to most of the memory allocations, though there are still 
 						potentially unclassified allocations that have not been accounted for 
 						yet. This issue can be incrementally fixed as we test the memory 
@@ -90,7 +98,7 @@
 						<p>The core code of TensorFlow, MXNet and CNTK are all written in 
 						C/C++. Since all of them support bindings with python, memory 
 						allocations may be triggered implicitly from python (especially for MXNet). To capture all 
-						these allocations and tag them with the correct functionality 
+						these allocations and tag them with the correct data structure 
 						information likely requires a complete restructure of the framework 
 						code. Our memory profilers are not yet able to classify them. 
 						As we noticed most of them are generated during the training epochs, while
@@ -99,8 +107,7 @@
 
 						<p>After obtaining the memory allocation log, it can then be parsed 
 						by a simple python program that outputs the allocation breakdown results. 
-						The python program can easily tell the functionality of a data 
-						structure if the proper keywords are attached. We aim to 
+						The python program can easily tell the data structure if the proper keywords are attached. We aim to 
 						open source our modified version of the frameworks with memory 
 						profiling capability, alongside our python parsers soon.</p>
 
