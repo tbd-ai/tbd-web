@@ -1,0 +1,116 @@
+.doc {
+	font-family: Times New Roman;
+}
+
+.title {
+	margin-top: 1rem;
+	margin-left: 1rem;
+	color: #1C3204;
+}
+
+.subtitle {
+	margin-left: 1rem;
+}
+
+.green {
+	color: green;	
+}
+
+.bg-green {
+	background: green;
+}
+
+.left-text {
+	text-align: left;
+}
+
+.middle-text {
+	text-align: center;
+	width: 100%;
+	display: block;
+}
+
+.middle_img {
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+
+.middle_block {
+	width: 75%;
+	margin-top: 2rem;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+
+.carousel-textarea {
+	height: 100px;
+}
+
+.my-carousel-indicators {
+	bottom: -10px;
+}
+
+.my-carousel-control-prev {
+	left: -10%;
+}
+
+.my-carousel-control-next {
+	right: -10%;
+}
+
+.my-carousel-control-prev-icon {
+	background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='green' viewBox='0 0 8 8'%3E%3Cpath d='M4 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E")
+}
+
+.my-carousel-control-next-icon {
+    	background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='green' viewBox='0 0 8 8'%3E%3Cpath d='M1.5 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E")
+}
+
+.map-margin {
+	margin-top: 3%;
+	margin-bottom: 3%;
+}
+
+.addr-style {
+	margin: 0;
+}
+
+.news-intel-img {
+	margin-top: 15px;
+	margin-bottom: 100px;
+}
+
+.professor-img {
+	margin-top: 2em;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+
+.people-img {
+	margin-top: 2em;
+	margin-left: auto;
+	margin-right: 5em;
+	display: block;
+	float: left;
+}
+
+.people-caption {
+	text-align: center;
+	display: block;
+	margin-right: 5em;
+	clear: left;
+}
+
+figure {
+	display: inline-block;
+	margin: 0px;
+}
+figure img {
+	vertical-align: top;
+}
+figure figcaption {
+	text-align: center;
+}

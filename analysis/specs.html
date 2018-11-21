@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<title>GPU Comparison | TBD</title>
+	
+	<meta charset="utf-8">
+	<meta name="viewpoint" content="width=device-width, initial-scale=1">
+	<link rel="icon" href="./images/uoft.png">
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" 
+		integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="ecosystem.css">
+	<link rel="stylesheet" type="text/css" href="tbd.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+	<script src="https://www.w3schools.com/lib/w3.js"></script>
+	<script src="https://use.fontawesome.com/fd789ca0f7.js"></script>
+
+</head>
+
+<body>
+
+	<div w3-include-html="../components/tbd-titlebar.html"></div>
+
+	<main id="content" role="main" class="doc">
+		<div class="container">
+		  <br><br>
+		  <h2>Hardware Sensitivity</h2>
+		  <br>
+			<ul>
+			<li class="toctree-l1"><a class="reference internal" href="specs.html">GPU Specifications</a></li>
+			<li class="toctree-l1"><a class="reference internal" href="throughput.html">FP32 Throughput</a></li>
+			<li class="toctree-l1"><a class="reference internal" href="compute_utilization.html">GPU Compute Utilization</a></li>
+			<li class="toctree-l1"><a class="reference internal" href="fp32_utilization.html">GPU FP32 Utilization</a></li>
+			<li class="toctree-l1"><a class="reference internal" href="fp16_utilization.html">FP16 Throughput</a></li>
+			</ul>
+
+			<div class="container">
+				<div class="section" id="specs">
+				<br>
+				<div>
+					<h2>Frameworks and GPU Specifications</h2>
+						<div class="section" id="gpu-spec">
+							<br>
+							<p>Here we present our performance study for different type of GPUs. The following table shows the specifications of GPUs we tested:</p>
+							<table style="width:100%">
+							  <tr>
+								<th></th>
+								<th># of Multi-processors</th> 
+								<th>Core count</th>
+								<th>Max Clock Rate (MHz)</th>
+								<th style="padding:0 5px 0 0px;">Memory Size (GB)</th>
+								<th style="padding:0 5px 0 0px;">LLC Size (MB)</th>
+								<th style="padding:0 5px 0 0px;">Memory Bus Type</th>
+								<th style="padding:0 5px 0 0px;">Memory BW (GB/s)</th>
+								<th>Bus Interface</th>
+								<th>Memory Speed (MHz)</th>
+							  </tr>
+							  <tr>
+								<td style="padding:0 15px 0 0px;">TitanXp</td>
+								<td>30</td> 
+								<td>3840</td>
+								<td>1582</td>
+								<td>12</td>
+								<td>3</td>
+								<td>GDDR5X</td>
+								<td>547.6</td>
+								<td>PCIe 3.0</td>
+								<td>5705</td>
+							  </tr>
+							  <tr>
+								<td>1080 Ti</td>
+								<td>30</td> 
+								<td>3584</td>
+								<td>1582</td>
+								<td>11</td>
+								<td>2.75</td>
+								<td>GDDR5X</td>
+								<td>352.2</td>
+								<td>PCIe 3.0</td>
+								<td>5505</td>
+							  </tr>
+							  <tr>
+								<td>P4000</td>
+								<td>14</td> 
+								<td>1792</td>
+								<td>1480</td>
+								<td>8</td>
+								<td>2</td>
+								<td>GDDR5</td>
+								<td>243</td>
+								<td>PCIe 3.0</td>
+								<td>3802</td>
+							  </tr>
+							  <tr>
+								<td>Titan V</td>
+								<td>80</td> 
+								<td>5120</td>
+								<td>1455</td>
+								<td>12</td>
+								<td>4.5</td>
+								<td>HBM2</td>
+								<td>652.8</td>
+								<td>PCIe 3.0</td>
+								<td>850</td>
+							  </tr>
+							  <tr>
+								<td>V100-PCIe</td>
+								<td>80</td> 
+								<td>5120</td>
+								<td>1370</td>
+								<td>32</td>
+								<td>6</td>
+								<td>HBM2</td>
+								<td>900</td>
+								<td>PCIe 3.0</td>
+								<td>877</td>
+							  </tr>
+							  <tr>
+								<td>V100-SXM2</td>
+								<td>80</td> 
+								<td>5120</td>
+								<td>1455</td>
+								<td>16</td>
+								<td>6</td>
+								<td>HBM2</td>
+								<td>900</td>
+								<td>NVLink</td>
+								<td>877</td>
+							  </tr>
+							  <tr>
+								<td>P100[12GB]</td>
+								<td>56</td> 
+								<td>3584</td>
+								<td>1303</td>
+								<td>12</td>
+								<td>4</td>
+								<td>HBM2</td>
+								<td>549</td>
+								<td>PCIe 3.0</td>
+								<td></td>
+							  </tr>
+							  <tr>
+								<td>P100[16GB]</td>
+								<td>56</td> 
+								<td>3584</td>
+								<td>1480</td>
+								<td>16</td>
+								<td>4</td>
+								<td>HBM2</td>
+								<td>720</td>
+								<td>PCIe 3.0</td>
+								<td></td>
+							  </tr>
+							  <tr>
+								<td>2080 Ti</td>
+								<td>68</td> 
+								<td>4352</td>
+								<td>1635</td>
+								<td>11</td>
+								<td>6</td>
+								<td>GDDR6</td>
+								<td>616</td>
+								<td>PCIe 3.0</td>
+								<td></td>
+							  </tr>
+							</table>
+						</div>
+					<br>
+					<p>Here are the framework and batch size details of all benchmarks that we used for hardware sensitivity study.</p>
+						<div class="section" id="framework-spec">
+							<table style="width:100%">
+							  <tr>
+								<th></th>
+								<th>ResNet-50</th> 
+								<th>InceptionV3</th>
+								<th>Sockeye</th>
+								<th>NMT</th>
+								<th>Transformer</th>
+								<th>A3C</th>
+								<th>Faster RCNN</th>
+							  </tr>
+							  <tr>
+								<td>Framework</td>
+								<td>MXNet v1.1.0</td>
+								<td>MXNet v1.1.0</td> 
+								<td>MXNet v1.1.0</td>
+								<td>TensorFlow v1.8.0</td>
+								<td>TensorFlow v1.8.0</td>
+								<td>MXNet v1.1.0</td>
+								<td>MXNet v1.1.0</td>
+							  </tr>
+							  <tr>
+								<td>Batch Size</td>
+								<td>32 images</td> 
+								<td>32 images</td>
+								<td>32 sentences</td>
+								<td>128 sentences</td>
+								<td>2048 sentences</td>
+								<td>32 snapshots</td>
+								<td>1 image + 128 ROIs</td>
+							  </tr>
+							</table>
+						</div>
+
+				</div>
+				</div>
+			<br><br>
+			</div>
+					
+		<br><br>
+
+		</div>
+        <br/><br/>
+	</main>
+
+	<script>w3.includeHTML();</script>
+
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" 
+		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" 
+		crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" 
+		integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" 
+		crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" 
+		integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" 
+		crossorigin="anonymous"></script>
+
+</body>
+</html>
