@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<title>Tools | TBD</title>
+	
+	<meta charset="utf-8">
+	<meta name="viewpoint" content="width=device-width, initial-scale=1">
+	<link rel="icon" href="./images/uoft.png">
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" 
+		integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="ecosystem.css">
+	<link rel="stylesheet" type="text/css" href="tbd.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+	<script src="https://www.w3schools.com/lib/w3.js"></script>
+	<script src="https://use.fontawesome.com/fd789ca0f7.js"></script>
+
+</head>
+
+<body>
+
+	<div w3-include-html="./components/tbd-titlebar.html"></div>
+
+	<main id="content" role="main" class="doc">
+		<div class="container">
+		    <br><br>
+		    <h2>Tools</h2>
+			<br>
+			
+			<div class="container">
+				<p>In our project we built tools to help profiling memory usage and network usage. Here is a brief introduction about what they can do. For detail usage please refer to our <a href=https://github.com/tbd-ai/tbd-tools>tbd-tools<a> github repository.</p>
+				<ul>
+				<li class="toctree-l1"><a class="reference internal" href="tools-memory.html">Memory Profiler</a></li>
+				<li class="toctree-l1"><a class="reference internal" href="tools-nwprof.html">Network Profiler</a></li>
+				</ul>
+				<div class="section" id="network-profiler">
+					<div>
+						<h3>Network Profiler</h3>
+					</div>
+						<p>We build our network profiler based on MXNet v1.1.0. The profiler shows the communication delay of each individual layers in the neural network during distributed training. The results are presented in json format, which can be opened by chrome://traicing. Here is an example network transfer timeline:</p>
+
+						<div class="margin-10">
+							<img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-900 middle-img" 
+								src="./images/nwprof_example_timeline.png">
+						</div>
+						<p>The communication delay of each layer is shown at the top under CPU Pinned section. The layers are indexed according to its position in the neural network starting from 0 for the first layer.</p>
+						<p>Ideally, we want communication overlapped with computation so that it doesn't become the bottleneck of training. This is needed to achieve high scalability. In the figure above, we can see that most of the gaps between GPU timeline blocks are filled by communication, which indicates that the communication introduce a lot of overhead.</p>
+					<br><br>
+				</div>
+			</div>
+		</div>
+        <br><br>
+	</main>
+	<script>w3.includeHTML();</script>
+
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" 
+		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" 
+		crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" 
+		integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" 
+		crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" 
+		integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" 
+		crossorigin="anonymous"></script>
+
+</body>
+</html>
