@@ -22,7 +22,7 @@
 
 <body>
 
-	<div w3-include-html="../components/tbd-titlebar.html"></div>
+	<div w3-include-html="./components/tbd-titlebar.html"></div>
 
 	<main id="content" role="main" class="doc">
 		<div class="container">
@@ -30,11 +30,17 @@
 		  <h2>Hardware Sensitivity</h2>
 		  <br>
 			<ul>
-			<li class="toctree-l1"><a class="reference internal" href="specs.html">GPU Specifications</a></li>
+			<li class="toctree-l1"><a class="reference internal" href="end2end.html">End-to-End Training</a></li>
 			<li class="toctree-l1"><a class="reference internal" href="throughput.html">FP32 Throughput</a></li>
+			<li class="toctree-l1">GPU Compute Utilization</li>
+			<li class="toctree-l1">GPU FP32 Utilization</a></li>
+			<li class="toctree-l1">FP16 Throughput</a></li>
+			<li class="toctree-l1"><a class="reference internal" href="specs.html">GPU Specifications</a></li>
+			<!--
 			<li class="toctree-l1"><a class="reference internal" href="compute_utilization.html">GPU Compute Utilization</a></li>
 			<li class="toctree-l1"><a class="reference internal" href="fp32_utilization.html">GPU FP32 Utilization</a></li>
 			<li class="toctree-l1"><a class="reference internal" href="fp16_utilization.html">FP16 Throughput</a></li>
+			-->
 			</ul>
 
 			<div class="container">
@@ -44,33 +50,32 @@
 					<br>
 					<p>We show the throughput results on different GPU architectures including the latest Pascal & Volta generations. Unlike the baseline analysis on P4000, we use a fixed mini-batch size for each benchmark. All benchmarks are trained in single-precision floats.</p>
 					<div class="margin-10">
-						<img width="500" src="../data/throughput_resnet.png"/>
-						<img width="500" src="../data/throughput_inception.png"/>
+						<img width="500" src="./data/throughput_resnet.png"/>
+						<img width="500" src="./data/throughput_inception.png"/>
 						<br>
 					</div>
-					<p>As we can see that for image classification benchmarks, V100-SXM2 outperforms all other GPU architectures. The second tier includes the V100-PCIe, 2080 Ti and Titan V. Their performance is roughly 15% slower than V100-SXM2. The Pascal architectures deliver similar performance comparing to 1080 Ti, which is slightly (10%) less than Titan Xp. We observed similar performance tiers in Transformer and Faster RCNN benchmarks.</p>
+					<p>As we can see that for image classification benchmarks, V100-SXM2 outperforms all other GPU architectures. The second tier includes the V100-PCIe, 2080 Ti and Titan V. Their performance is roughly 15% slower than V100-SXM2. The Pascal architectures deliver similar performance comparing to 1080 Ti, which is slightly (10%) less than Titan Xp. We observed similar performance tiers for Faster RCNN benchmark, as Faster RCNN uses an image classification model as its base model.</p>
 					<div class="margin-10">
-						<img width="500" src="../data/throughput_frcnn.png"/>
-						<img width="500" src="../data/throughput_transformer.png"/>
+						<img class="middle_img" width="500" src="./data/throughput_frcnn.png"/>
 						<br>
 					</div>
-					<p>For the transformer model, the GPU architectures below the second tier (V100-PCIe, 2080 Ti, Titan V) are much slower than (roughly 50% slower) others. For Faster RCNN they are also around 30% slower, similar to the image classification models as Faster RCNN essentially use an image classification network as its base model.</p>
-
-					<p>For the seq2seq model which consists of mainly RNN layers, implemented by MXNet sockeye, V100-SXM2 still delivers the best training speed, but the V100-PCIe architecture is much slower and only better than P100. The Titan Xp and 1080 Ti architectures appear to deliver better performance results.</p>
+					<p>For the seq2seq model, The V100 architectures are still able to deliver the best training speed. However for the sockeye implementation, V100-PCIe is only faster than P100 and Quadro P4000, and Titan Xp and 1080 Ti are much more competative. For the NMT benchmark, the V100-PCIe architecture is slightly faster than V100-SXM2.</p>
 					<div class="margin-10">
-						<img class="middle_img" width="500" src="../data/throughput_sockeye.png"/>
+						<img width="500" src="./data/throughput_sockeye.png"/>
+						<img width="500" src="./data/throughput_nmt.png"/>
 						<br>
 					</div>
-					<p>However for the NMT benchmark, the V100-PCIe is slightly faster than V100-SXM2, as well as Titan V and Titan Xp.</p>
+					<p>For the transformer model, the performance tiers are the same as image classification models. The only difference is that the Titan Xp, 1080 Ti, P100 and P4000 are much slower than (roughly 50% slower) others. For image classification they are also around 30% slower.</p>
 					<div class="margin-10">
-						<img class="middle_img" width="500" src="../data/throughput_nmt.png"/>
+						<img class="middle_img" width="500" src="./data/throughput_transformer.png"/>
 						<br>
 					</div>
 					<p>The A3C model uses a relatively shallow CNN network as its base model. In this case the V100 architectures are not able to outperform other architectures.</p>
 					<div class="margin-10">
-						<img class="middle_img" width="500" src="../data/throughput_a3c.png"/>
+						<img class="middle_img" width="500" src="./data/throughput_a3c.png"/>
 						<br>
 					</div>
+					<p>In general, we conclude that the V100 architectures deliver the best DNN training performance. The Titan V and 2080 Ti architectures are equally fast and competative (only 15% slower than V100 on average). Titan Xp is slightly (10%) faster than 1080 Ti, but slower than Titan V and 2080 Ti. The P100 architectures are much slower than others and only faster than our baseline Quadro P4000.</p>
 				</div>
 			</div>
 					

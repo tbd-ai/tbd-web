@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<title>GPU Comparison | TBD</title>
+	
+	<meta charset="utf-8">
+	<meta name="viewpoint" content="width=device-width, initial-scale=1">
+	<link rel="icon" href="./images/uoft.png">
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" 
+		integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="ecosystem.css">
+	<link rel="stylesheet" type="text/css" href="tbd.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+	<script src="https://www.w3schools.com/lib/w3.js"></script>
+	<script src="https://use.fontawesome.com/fd789ca0f7.js"></script>
+
+</head>
+
+<body>
+
+	<div w3-include-html="./components/tbd-titlebar.html"></div>
+
+	<main id="content" role="main" class="doc">
+		<div class="container">
+		  <br><br>
+		  <h2>End-to-End Training</h2>
+		  <br>
+			<ul>
+			<li class="toctree-l1"><a class="reference internal" href="end2end.html">End-to-End Training</a></li>
+			<li class="toctree-l1"><a class="reference internal" href="throughput.html">FP32 Throughput</a></li>
+			<li class="toctree-l1">GPU Compute Utilization</li>
+			<li class="toctree-l1">GPU FP32 Utilization</li>
+			<li class="toctree-l1">FP16 Throughput</li>
+			<li class="toctree-l1"><a class="reference internal" href="specs.html">GPU Specifications</a></li>
+			<!--
+			<li class="toctree-l1"><a class="reference internal" href="compute_utilization.html">GPU Compute Utilization</a></li>
+			<li class="toctree-l1"><a class="reference internal" href="fp32_utilization.html">GPU FP32 Utilization</a></li>
+			<li class="toctree-l1"><a class="reference internal" href="fp16_utilization.html">FP16 Throughput</a></li>
+			-->
+			</ul>
+			Before we proceed to actual profiling, we need to verify that the profiled implementation is able to produce the reported validation accuracy. However, training a DNN model to full completion is usually an extremely time-consuming job. Due to the limited time and hardware resources, we only managed to produce training curves on the P4000, 1080 Ti, Titan Xp and V100-SXM2 architectures for some models. We will gradually add more training curves.
+			<div class="margin-10">
+				<img width="500" src="./data/training_transformer.png"/>
+				<img width="500" src="./data/training_nmt.png"/>
+				<br>
+				<img width="500" src="./data/training_wgan.png"/>
+				<img width="500" src="./data/training_a3c.png"/>
+				<br>
+			</div>
+		<br><br>
+
+		</div>
+	</main>
+
+	<script>w3.includeHTML();</script>
+
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" 
+		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" 
+		crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" 
+		integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" 
+		crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" 
+		integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" 
+		crossorigin="anonymous"></script>
+
+</body>
+</html>
