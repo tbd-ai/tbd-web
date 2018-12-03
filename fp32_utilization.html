@@ -3,7 +3,7 @@
 
 <head>
 
-	<title>End-to-End Training | TBD</title>
+	<title>FP32 Utilization Comparison | TBD</title>
 	
 	<meta charset="utf-8">
 	<meta name="viewpoint" content="width=device-width, initial-scale=1">
@@ -41,16 +41,24 @@
 			-->
 			</ul>
 			<br>
-			<h2>End-to-End Training</h2>
-			Before we proceed to actual profiling, we need to verify that the profiled implementation is able to produce the reported validation accuracy. However, training a DNN model to full completion is usually an extremely time-consuming job. Due to the limited time and hardware resources, we only managed to produce training curves on the P4000, 1080 Ti, Titan Xp and V100-SXM2 architectures for some models. We will gradually add more training curves.
+			<h3>FP32 Utilization</h3>
+			<p>Single precision floats are commonly used by machine learning practitioners to ensure the model accuracy is not corrupted. We define the FP32 utilization by the ratio between average number of FLOPS executed per cycle over the maximum number of FLOPS executed per cycle. This metric indicates how well the single precision float cores are utilized by DNN workloads. A low FP32 utilization indicates that potential performance gain can be achieved if the software libraries (e.g. cuda, cudnn, mkl, etc.) can be further improved.</p>
+			
+			<p>Currently we present only the results of GPUs. We will gradually present more results as more and more hardware accelerator resources become available.</p>
+
+			<p>The following figure shows the FP32 core utilization results for different benchmarks running on various GPUs. These results are based on cuda 9, cudnn 7 and Ubuntu 16.04 LTE OS.</p>
 			<div class="margin-10">
-				<img width="500" src="./data/training_transformer.png"/>
-				<img width="500" src="./data/training_nmt.png"/>
-				<br>
-				<img width="500" src="./data/training_wgan.png"/>
-				<img width="500" src="./data/training_a3c.png"/>
+				<img class="middle_img" width="700" src="./data/fp32_utilization.png"/>
+				<div class="text-align-center">The FP32 utilization of different benchmarks on 4 GPUs</div>
 				<br>
 			</div>
+
+			<p>We can make the following observations:</p>
+			<ul>
+			<li class="toctree-l1">Image classification models and the transformer model are the most friendly benchmarks for GPUs in terms of FP32 utilization. Other models have FP32 utilization of 70% at most, and it is worse for RNN models.</li>
+			<li class="toctree-l1">Similar to compute utilization, the general trend is that FP32 utilization drops as GPUs become more powerful.</li>
+			<li class="toctree-l1">From the last observation, we can conclude that as hardware accelerators become faster, there are increasing potentials in optimizating software libraries. Stronger hardware accelerators should be equipped with better software libraries so that the computation power can be fully utilized.</li>
+			</ul>
 		<br><br>
 
 		</div>
