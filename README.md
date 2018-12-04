@@ -1,2 +1,2 @@
 # TBD-Website
-This is the repository for the website of TBD.
+This is the repository for the TBD website.
