@@ -46,13 +46,13 @@
 				<div class="section" id="sensitivity">
 					<h3>FP32 Throughput Comparison</h3>
 					<br>
-					<p>We show the throughput results on different GPU architectures including the latest Pascal & Volta generations. Unlike the baseline analysis on P4000, we use a fixed mini-batch size for each benchmark. All benchmarks are trained in single-precision floats.</p>
+					<p>We show the throughput results on different GPU architectures, including the latest Pascal & Volta generations. Unlike the baseline analysis on P4000, we use a fixed mini-batch size for each benchmark. All benchmarks are trained with single-precision floating point.</p>
 					<div class="margin-10">
 						<img width="500" src="./data/throughput_resnet.png"/>
 						<img width="500" src="./data/throughput_inception.png"/>
 						<br>
 					</div>
-					<p>As we can see that for image classification benchmarks, V100-SXM2 outperforms all other GPU architectures. The second tier includes the V100-PCIe, 2080 Ti and Titan V. Their performance is roughly 15% slower than V100-SXM2. The Pascal architectures deliver similar performance comparing to 1080 Ti, which is slightly (10%) less than Titan Xp. We observed similar performance tiers for Faster RCNN benchmark, as Faster RCNN uses an image classification model as its base model.</p>
+					<p>Observe that for image classification benchmarks, V100-SXM2 outperforms all other GPU architectures. The second tier includes the V100-PCIe, 2080 Ti and Titan V. Their performance is roughly 15% slower than V100-SXM2. The Pascal architectures deliver similar performance compared to 1080 Ti, which is slightly (10%) less than Titan Xp. We observed similar performance tiers for the Faster RCNN benchmark, since Faster RCNN uses an image classification model as its base model.</p>
 					<div class="margin-10">
 						<img class="middle_img" width="500" src="./data/throughput_frcnn.png"/>
 						<br>
@@ -63,12 +63,12 @@
 						<img width="500" src="./data/throughput_nmt.png"/>
 						<br>
 					</div>
-					<p>For the transformer model, the performance tiers are the same as image classification models. The only difference is that the Titan Xp, 1080 Ti, P100 and P4000 are much slower than (roughly 50% slower) others. For image classification they are also around 30% slower.</p>
+					<p>For the transformer model, the performance tiers are the same as image classification models. The only difference is that the Titan Xp, 1080 Ti, P100 and P4000 are much slower (roughly 50%) than others, while for image classification, they are around 30% slower.</p>
 					<div class="margin-10">
 						<img class="middle_img" width="500" src="./data/throughput_transformer.png"/>
 						<br>
 					</div>
-					<p>The A3C model uses a relatively shallow CNN network as its base model. In this case the V100 architectures are not able to outperform other architectures.</p>
+					<p>The A3C model uses a relatively shallow CNN network as its base model. In this case, the V100 architectures are not able to outperform other architectures.</p>
 					<div class="margin-10">
 						<img class="middle_img" width="500" src="./data/throughput_a3c.png"/>
 						<br>

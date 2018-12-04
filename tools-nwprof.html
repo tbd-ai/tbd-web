@@ -31,7 +31,7 @@
 			<br>
 			
 			<div class="container">
-				<p>In our project we built tools to help profiling memory usage and network usage. Here is a brief introduction about what they can do. For detail usage please refer to our <a href=https://github.com/tbd-ai/tbd-tools>tbd-tools<a> github repository.</p>
+				<p>As part of this project, we built tools to help profile memory usage and network usage. This is a brief introduction; for detailed usage, please refer to our <a href=https://github.com/tbd-ai/tbd-tools>tbd-tools<a> github repository.</p>
 				<ul>
 				<li class="toctree-l1"><a class="reference internal" href="tools-memory.html">Memory Profiler</a></li>
 				<li class="toctree-l1"><a class="reference internal" href="tools-nwprof.html">Network Profiler</a></li>
@@ -40,13 +40,13 @@
 					<div>
 						<h3>Network Profiler</h3>
 					</div>
-						<p>We build our network profiler based on MXNet v1.1.0. The profiler shows the communication delay of each individual layers in the neural network during distributed training. The results are presented in json format, which can be opened by chrome://traicing. Here we show the example of network transfer timeline of training VGG-19:</p>
+						<p>We built our network profiler based on MXNet v1.1.0. The profiler shows the communication delay of each individual layer in the neural network during distributed training. The results are presented in json format, which can be opened from chrome://tracing. Here we show the example of a network transfer timeline for training VGG-19:</p>
 						<div class="margin-10">
 							<img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-900 middle-img" 
 								src="./images/nwprof_example_timeline.png">
 						</div>
-						<p>The communication delay of each layer is shown at the top under CPU Pinned section. The layers are indexed according to its position in the neural network starting from 0 for the first layer.</p>
-						<p>Ideally, we want communication overlapped with computation so that it doesn't become the bottleneck of training. This is needed to achieve high scalability. In the figure above, we can see that most of the gaps between GPU timeline blocks are filled by communication, which indicates that the communication introduce a lot of overhead.</p>
+						<p>The communication delay of each layer is shown at the top under the CPU Pinned section. The layers are indexed according to its position in the neural network starting from 0 for the first layer.</p>
+						<p>Ideally, we want communication overlapped with computation so that it doesn't become the bottleneck of training, enabling high scalability. In the figure above, it is apparent that most of the gaps between GPU timeline blocks are filled by communication, which indicates that communication introduces a lot of overhead.</p>
 					<br><br>
 				</div>
 			</div>

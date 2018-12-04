@@ -31,7 +31,7 @@
 			<br>
 			
 			<div class="container">
-				<p>In our project we built tools to help profiling memory usage and network usage. Here is a brief introduction about what they can do. For detail usage please refer to our <a href=https://github.com/tbd-ai/tbd-tools>tbd-tools<a> github repository.</p>
+				<p>As part of this project, we built tools to help profile memory usage and network usage. This is a brief introduction; for detailed usage, please refer to our <a href=https://github.com/tbd-ai/tbd-tools>tbd-tools<a> github repository.</p>
 				<ul>
 				<li class="toctree-l1"><a class="reference internal" href="tools-memory.html">Memory Profiler</a></li>
 				<li class="toctree-l1"><a class="reference internal" href="tools-nwprof.html">Network Profiler</a></li>
@@ -42,18 +42,18 @@
 					</div>
 					
 					<div>
-						<p>We build memory profilers for TensorFlow, MXNet and CNTK. 
+						<p>We built memory profilers for TensorFlow, MXNet and CNTK. 
 						The goal of a memory profiler is to show the breakdown of the bulk of GPU 
 						allocated memory involved in DNN training. We classify allocations 
-						according to data structure, including
+						according to data structure, including:
 						<ol>
-						<li>Weights: model weights.</li>
+						<li>Weights: weights, biases, etc.</li>
 						<li>Gradients: calculated in the backward pass, often has equal size with Weights.</li>
 						<li>Activations (or feature maps): intermediate results 
 						generated in the forward pass and reused in the backward pass. This is the major consumer of GPU memory.</li>
 						<li>Workspace: temporary space allocated for detailed implementations of operations 
 						(e.g. matrix multiplications, convolutions).</li>
-						<li>Dynamic: (explained bellow).</li>
+						<li>Dynamic: (explained below).</li>
 						</ol>
 						(Our MXNet memory profiler is available <a href="https://github.com/tbd-ai/tbd-tools/tree/master/MXNet-MemoryProfiler" target="_blank" class="link-style">here&nbsp;<span class="fa fa-link"></span></a>, we will gradually put others.)
 						</p>
@@ -61,7 +61,7 @@
 						<div>
 							<h4>How the memory profiler works</h4>
 						</div>
-						<p>Our profiler fhas two steps. The first step is to log each memory 
+						<p>Our profiler works in two steps. The first step is to log each memory 
 						allocation issued by the framework (which necessitates making changes 
 						to framework code) and tag each allocation with the following 
 						information at a minimum:</p>
@@ -93,21 +93,21 @@
 						called in the initialization function of a tensor, which is invoked 
 						in an enormous number of places, and only a small portion of 
 						initializations actually trigger memory allocation. Through research 
-						and careful analysis on the framework codebases and with additional 
-						hacking skills, we manage to attach the correct data structure 
+						and careful analysis on the framework codebases, and with additional 
+						hacking skills, we managed to attach the correct data structure 
 						information to most of the memory allocations, though there are still 
 						potentially unclassified allocations that have not been accounted for 
 						yet. This issue can be incrementally fixed as we test the memory 
-						profiler with more training cases.</p>
+						profiler with more applications.</p>
 
 						<p>The core code of TensorFlow, MXNet and CNTK are all written in 
 						C/C++. Since all of them support bindings with python, memory 
-						allocations may be triggered implicitly from python (especially for MXNet). To capture all 
+						allocations may be triggered implicitly from python (especially for MXNet). To capture <i>all</i> 
 						these allocations and tag them with the correct data structure 
 						information likely requires a complete restructure of the framework 
 						code. Our memory profilers are not yet able to classify them. 
-						As we noticed most of them are generated during the training epochs, while
-						Weights, Gradients, Activations are mostly initialized before training starts, 
+						As we noticed, most of them are generated during the training epochs, while
+						weights, gradients, activations are mostly initialized before training starts, 
 						We assign these allocations with a new type called "Dynamic".</p>
 
 						<p>After obtaining the memory allocation log, it can then be parsed 
@@ -119,7 +119,7 @@
 						<div>
 							<h4>Example results</h4>
 						</div>
-						<p>Here are two examples from Inception and Deep Speech 2 that show the results of our memory profiling. 
+						<p>Below are two examples from Inception and Deep Speech 2 that show the results of our memory profiling. 
 						<br>
 						<br>
 						<img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" 
@@ -127,11 +127,11 @@
 						<img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" 
 							src="./images/sigmetrics18/memory_DS2.png">
 						<br>
-						Notice that the memory consumption calculated by our memory profiler, will be 
+						Notice that the memory consumption calculated by our memory profiler is 
 						less then the real memory consumption (one can check using nvidia-smi). The major
-						reason is the memory paging. The page size is 2MB. Each memory
-						allocation might cause some waste in the a page, and the waste accumulated will
-						make the calculated memory consumption a few hundred MB off than the real memory consumption.
+						reason is memory paging. Since the page size is 2 MB, each memory
+						allocation that doesn't fully fit in a page contributes to inflating the actual memory consumption. The waste accumulated can
+						make the actual memory consumption hundreds of MB greater than the calculated memory consumption.
 					</div>
 					<br><br>
 				</div>

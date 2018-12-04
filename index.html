@@ -30,8 +30,8 @@
 		  <h2>TBD - Training Benchmark for DNNs</h2>
 		  <p>TBD is a new benchmark suite for DNN training that currently covers six major application domains and eight different state-of-the-art models.
                      The applications in this suite are selected based on extensive conversations with ML developers and users from both industry and academia. 
-                     For all application domains we select recent models capable of delivering state-of-the-art results.
-                     We intend  to continually expand TBD with new applications and models based on feedback and support from the community.
+                     For all application domains, we select recent models capable of delivering state-of-the-art results.
+                     We intend to continually expand TBD with new applications and models based on feedback and support from the community.
                   </p>
                   <p>This is a joint project between the <a href="http://www.cs.toronto.edu/ecosystem/index.html">EcoSystem Research Group</a> at University of Toronto and <a href="https://www.microsoft.com/en-us/research/project/fiddle/">Project Fiddle</a> at Microsoft Research, Redmond. <br> 
                   We also have collaborators from UBC and University of Michigan.
@@ -83,7 +83,7 @@
 	
 </div>
 <br>
-		  <table class="table table-hover">
+		  <table class="table table-hover app-table">
 			<thead>
 			  <tr style="font-size: 20px;">
 				<th>Application</th>
@@ -154,7 +154,7 @@
 			</tbody>
 		  </table>
 		<br>
-		<p>(Note that all the following results are generated based on Quadro P4000 GPU)</p>
+		<p>(Note that all the following results are generated on Quadro P4000 GPU)</p>
 		
 		<!-- Details about each model-->
 		<div class="container"> 
@@ -335,12 +335,12 @@ face detection, are another popular deep learning application and
 can be thought of as an extension of image classification, where
 an algorithm usually first breaks down an image into regions of
 interest and then applies image classification to each region. We
-choose to include Faster R-CNN, which achieves state-of-theart
+chose to include Faster R-CNN, which achieves state-of-the-art
 results on the Pascal VOC datasets. A training iteration
 consists of the forward and backward passes of two networks (one
 for identifying regions and one for classification), weight sharing
 and local fine-tuning. The convolution stack in a Faster R-CNN network is usually a standard image classification network, in our
-work a 101-layer ResNet.
+work: a 101-layer ResNet.
             </div>
 
             <div class="links margin-bottom-10 link-container">
@@ -376,9 +376,8 @@ recognize both English and Mandarin Chinese, two very
 distant languages, with a unified model architecture and shows
 great potential for deployment in industry. The Deep Speech 2
 model contains two convolutional layers, plus seven regular recurrent
-layers or Gate Recurrent Units (GRUs), different from the RNN
-models in machine translation included in our benchmark suite,
-which use LSTM layers..
+layers or Gate Recurrent Units (GRUs), unlike the machine translation RNN
+models included in our benchmark suite, which use LSTM layers..
             </div>
 
             <div class="links margin-bottom-10 link-container">
@@ -426,13 +425,13 @@ is trained to distinguish whether a data sample is genuine or synthesized.
 GANs are used, for example, to synthetically generate
 photographs that look at least superficially authentic to human
 observers.
-While GANs are powerful generative models, training a GAN
+While GANs are powerful generative models, GAN training 
 suffers from instability. The WGAN is a milestone as it makes
 great progress towards stable training. Recently Gulrajani et al.
 proposes an improvement based on the WGAN to enable stable
 training on a wide range of GAN architectures. We include this
-model into our benchmark suite as it is one of the leading DNN
-algorithms in the unsupervised learning area.
+model in our benchmark suite, since it is one of the leading DNN
+algorithms for unsupervised learning.
             </div>
 
             <div class="links margin-bottom-10 link-container">

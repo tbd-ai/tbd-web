@@ -42,9 +42,9 @@
 			</ul>
 			<br>
 			<h3>FP32 Utilization</h3>
-			<p>Single precision floats are commonly used by machine learning practitioners to ensure the model accuracy is not corrupted. We define the FP32 utilization by the ratio between average number of FLOPS executed per cycle over the maximum number of FLOPS executed per cycle. This metric indicates how well the single precision float cores are utilized by DNN workloads. A low FP32 utilization indicates that potential performance gain can be achieved if the software libraries (e.g. cuda, cudnn, mkl, etc.) can be further improved.</p>
+			<p>Single precision floats are commonly used by machine learning practitioners to ensure the model accuracy is not corrupted. We define the FP32 utilization as the ratio between average number of FLOPS executed per cycle over the maximum number of FLOPS executed per cycle. This metric indicates how well the single precision float cores are utilized by DNN workloads. A low FP32 utilization indicates the potential performance gain that can be achieved if the software libraries (e.g. cuda, cudnn, mkl, etc.) can be further improved.</p>
 			
-			<p>Currently we present only the results of GPUs. We will gradually present more results as more and more hardware accelerator resources become available.</p>
+			<p>Currently we present only the results of GPUs. We will gradually present more results as more hardware accelerator resources become available.</p>
 
 			<p>The following figure shows the FP32 core utilization results for different benchmarks running on various GPUs. These results are based on cuda 9, cudnn 7 and Ubuntu 16.04 LTE OS.</p>
 			<div class="margin-10">

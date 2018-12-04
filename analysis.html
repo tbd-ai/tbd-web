@@ -56,11 +56,8 @@
 							
 							<div>
 								Since neural network libraries may include tuning
-								operations at the start of training, we wait 
-								multiple iterations before turning on profiling 
-								for obtaining a representative sample of the
-								training process.
-								
+								operations at the start of training, to obtain a representative sample of the training process, we wait 
+								multiple iterations before turning on profiling.
 								With python, we use the numba library to control
 								when profiling samples are taken.
 								
@@ -72,13 +69,13 @@
 								<br><br> 
 								We call <code>cuda.profile_start()</code> to begin the profiling, and
 								<code>cuda.profile_stop()</code> to end
-								profiling. Due to the facts that the generated profile files can 
+								profiling. Since generated profile files can 
 								become large and each training iteration follows the same computation
 								logic, the profiling period is usually chosen
 								to be only a small number of iterations. Moreover,
-								we carefully choose a period that only includes
+								we carefully choose a period that includes
 								only training computations, without validation. After cuda.profile_stop() is hit,
-								the training process can be safely killed by Ctrl+c. The .nvvp file
+								the training process can be safely killed with Ctrl+c. The .nvvp file
 								exported by the <code>--export-profile</code> option can be viewed by NVidia Visual Profiler
 								for further analysis.
 							</div>
@@ -98,8 +95,8 @@
 								work. For Deep Speech 2, which has no training throughput numbers
 								logged directly, we measure the sum of all data samples between two
 								time stamps in the training logs. As the lengths of the data samples vary
-								a lot, to measure training throughput od Deep Speech 2, we use the 
-								total length of data samples instead of simple count.
+								a lot, we use the total length of data samples instead of a simple count to 
+								measure training throughput with Deep Speech 2.
 							
 								<br>
 								<br>
@@ -121,7 +118,7 @@
 							<div>
 								GPU compute utilization measures the relative amount of time 
 								that the GPU spends actively running kernels. NVidia Visual Profiler provides this
-								information directly, but the number should be updated with the profiling overhead time excluded.
+								information directly, but the profiling overhead time should be excluded from that number.
 								
 								<br>
 								<br>
@@ -149,8 +146,7 @@
 								
 								The profiler generates the FP32 utilization for each individual kernel. We calculate a weighted sum
 								over all kernels for the overall FP32 utilization of the training. We can also
-								find out which kernels are long but with low utilization. These kernels are to be optimized with
-								high priority if necessary.
+								determine which kernels are long but with low utilization. Such kernels are good targets for optimization.
 								<br>
 								<br>
 								<img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" 
@@ -210,7 +206,7 @@
 								</table>
 
 								<br>
-								We compare the training throughput, GPU utilization and FP32 utilization. The results show that despite the more advanced GPU (TitanXp) deliver better training throughput, its compute resources are under-utilized.
+								We compare the training throughput, GPU utilization and FP32 utilization. The results show that although the more advanced GPU (Titan Xp) delivers better training throughput, its compute resources are still under-utilized.
 								
 								<br>
 								<br>
@@ -236,8 +232,8 @@
 								mini-batches are split among individual GPUs and the results are then merged.
 								We studied how the scalability is affected by the network bandwidth. We tested
 								the training of ResNet-50 on MXNet on both multi-GPU and multi-machine environments.
-								Our prilimary results show that the bandwidth of 1Gb/s ethernet will greatly lower the
-								overall training performance, and the bandwitdth of 100Gb/s infiniband is sufficient for
+								Our prilimary results show that the bandwidth of 1 Gb/s ethernet will greatly lower the
+								overall training performance, and that the bandwidth of 100 Gb/s infiniband is sufficient for
 								delivering good scalability in a multi-machine environment.
 								
 								
@@ -247,10 +243,10 @@
 									src="./images/sigmetrics18/multi_machine.jpg">
 								
 								<br>
-								The first level of x-axis shows the per-machine mini-batch size, and
-								the second level of x-axis shows the number of machines. 
-								In the case where multi-GPUs located in the same machine, all GPUs are connected with the host
-								through 6GB/s PCIe bus. It is able to deliver high scalability, but slightly lower throughput.
+								The first level of the x-axis shows the per-machine mini-batch size, and
+								the second level of the x-axis shows the number of machines. 
+								In the case where multiple GPUs located in the same machine, all GPUs are connected with the host
+								through a 6 GB/s PCIe bus. It is able to deliver high scalability, but slightly lower throughput.
 								<br>
 								<br>
 								<img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" 

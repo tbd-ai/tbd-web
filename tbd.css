@@ -2,6 +2,10 @@
             color:black
         }
         
+		.app-table {
+			text-align: left;
+		}
+		
         .card-block {
             padding: 10px;
             margin: 10px
@@ -30,6 +34,10 @@
             margin-bottom: 10px;
         }
         
+		.card-header {
+			cursor: pointer;
+		}
+		
         .accordion .card-header:after {
             font-family: 'FontAwesome';  
             content: "\f068";
