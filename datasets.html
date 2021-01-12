@@ -4,12 +4,12 @@
 <head>
 
 	<title>Datasets | TBD</title>
-	
+
 	<meta charset="utf-8">
 	<meta name="viewpoint" content="width=device-width, initial-scale=1">
 	<link rel="icon" href="./images/uoft.png">
-	
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" 
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
 		integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="ecosystem.css">
 	<link rel="stylesheet" type="text/css" href="tbd.css">
@@ -29,7 +29,7 @@
 		  <br><br>
 		  <h2>Datasets</h2>
 		  <br>
-		
+
 		  <table class="table table-hover">
 			<thead>
 			  <tr style="font-size: 20px;">
@@ -59,13 +59,19 @@
 				<td>12608 annotated objects</td>
 			  </tr>
 			  <tr>
+				<td>COCO 2014</td>
+				<td>164 062</td>
+				<td>around 640x400 per image</td>
+				<td>886k segmented object instances</td>
+			  </tr>
+			  <tr>
 				<td>LibriSpeech</td>
 				<td>280k</td>
 				<td>1000 hours in total</td>
 				<td>N/A</td>
 			  </tr>
 			  <tr>
-				<td>Downsampled ImageNet</td>
+				<td>Down-sampled ImageNet</td>
 				<td>1.2M</td>
 				<td>3x64x64 per image</td>
 				<td>N/A</td>
@@ -76,11 +82,17 @@
 				<td>210x160x3 per image (Pong)</td>
 				<td>Game dependent</td>
 			  </tr>
+			  <tr>
+				<td>MovieLens 20M</td>
+				<td>20000263</td>
+				<td>Rating between 1 and 5</td>
+				<td>Rounded to intervals of 0.5</td>
+			  </tr>
 			</tbody>
 		  </table>
 		<!-- Details about each model-->
 		<div class="container">
-		
+
 			<div class="dataset" id="image-net">
 				<div>
 					<h3>ImageNet1K</h3>
@@ -91,17 +103,17 @@
 				<div class="links margin-bottom-10">
 				  <a href="http://image-net.org/challenges/LSVRC/2012/" target="_blank" class="link-style">Homepage&nbsp;<span class="fa fa-link"></span></a>
 				</div>
-					
+
 				<div>
-					This classical dataset features a collection of 1.2 million labeled 
+					This classic dataset features a collection of 1.2 million labeled
 					images with one thousand object categories used for
-					training data in the image-net competition. The main task
+					training data in the ImageNet competition. The main task
 					in the competition is to classify the object inside an image. The size of all the raw images combined is around 133 GB.
-					Training models for this dataset can be very time-consuming. For example, training ResNet-50 model on this datase for 90 epochs on a NVIDIA M40 GPU can take 2 weeks.
+					Training models for this dataset can be very time-consuming. For example, training a ResNet-50 model on this database for 90 epochs on a NVIDIA M40 GPU can take 2 weeks.
 				</div>
 			</div>
 			<br><br>
-			
+
 			<div class="dataset" id="iwslt">
 				<div>
 					<h3>International Workshop on Spoken Language Translation (IWSLT)</h3>
@@ -112,18 +124,49 @@
 				<div class="links margin-bottom-10">
 				  <a href="http://workshop2015.iwslt.org/" target="_blank" class="link-style">Homepage&nbsp;<span class="fa fa-link"></span></a>
 				</div>
-					
+
 				<div>
 					This is a machine translation dataset that is focused on the automatic
 					transcription and translation of TED and TEDx talks, i.e.
-					public speeches covering many different topics. 
+					public speeches covering many different topics.
 					Compared with the WMT dataset, mentioned below, this dataset
-					is relatively small (the corpus has 130K sentences) and 
+					is relatively small (the corpus has 130K sentences) and
 					therefore models should be able to achieve decent BLEU scores fast (in several hours).
 				</div>
 			</div>
+			<div class="dataset" id="bert_dataset">
+				<div>
+					<h3>Dataset for BERT</h3>
+					<div class="margin-bottom-20">
+					</div>
+				</div>
+				<h4>For Pre-training</h4>
+				<div class="links margin-bottom-10">
+				  <a href="https://github.com/attardi/wikiextractor" target="_blank" class="link-style">WikiExtractor&nbsp;<span class="fa fa-link"></span></a>
+				</div>
+
+				<div class="links margin-bottom-10">
+				  <a href="https://github.com/soskek/bookcorpus" target="_blank" class="link-style">BookCorpus&nbsp;<span class="fa fa-link"></span></a>
+				</div>
+				<div>
+					The two datasets include raw text from Wikipedia and various published books. The text is then
+					cleaned (removes html tags and non-text metadata) before feeding into the model.
+				</div>
+
+				<br>
+				<h4>For Fine-tuning</h4>
+				<div class="links margin-bottom-10">
+				  <a href="https://rajpurkar.github.io/SQuAD-explorer/" target="_blank" class="link-style">SQuAD&nbsp;<span class="fa fa-link"></span></a>
+				</div>
+				<div>
+					As quoted in the original documentation:
+					"Stanford Question Answering Dataset (SQuAD) is a reading comprehension dataset, consisting of questions posed by crowdworkers on a set of Wikipedia articles, where the answer to every question is a segment of text, or span, from the corresponding reading passage, or the question might be unanswerable."" 
+					<a href="https://rajpurkar.github.io/SQuAD-explorer/" target="_blank" class="link-style">source&nbsp;<span class="fa fa-link"></span></a>
+				</div>
+
+			</div>
 			<br><br>
-			
+
 			<div class="dataset" id="wmt">
 				<div>
 					<h3>Workshop on Statistical Machine Translation (WMT)</h3>
@@ -134,7 +177,7 @@
 				<div class="links margin-bottom-10">
 				    <a href="http://www.statmt.org/wmt14/translation-task.html" target="_blank" class="link-style">Homepage&nbsp;<span class="fa fa-link"></span></a>
 				</div>
-					
+
 				<div>
 					This is a machine translation dataset composed from a
 					collection of various sources, including news commentaries
@@ -143,7 +186,7 @@
 				</div>
 			</div>
 			<br><br>
-			
+
 			<div class="dataset" id="voc">
 				<div>
 					<h3>PASCAL Visual Object Classes (VOC)</h3>
@@ -154,17 +197,35 @@
 				<div class="links margin-bottom-10">
 				  <a href="http://host.robots.ox.ac.uk/pascal/VOC/" target="_blank" class="link-style">Homepage&nbsp;<span class="fa fa-link"></span></a>
 				</div>
-					
+
 				<div>
 					This dataset, produced by a group at Oxford University,
-					includes image data for both segmentation and object detection 
+					includes image data for both segmentation and object detection
 					tasks. Given an input image, the segmentation task is to essentially determine for each pixel which object (or background) it belongs to,
-					and the object detection task is to draw a bounding box around each object in the image and classify each object. The number of classes in VOC07 is 20.
-					In TBD, we use the object detection task.
+					and the object detection task is to draw a bounding box around each object in the image and classify each object. The number of classes in VOC07 is 20. We use the object detection task in TBD.
 				</div>
 			</div>
 			<br><br>
-			
+
+			<div class="dataset" id="voc">
+				<div>
+					<h3>COCO</h3>
+					<div class="margin-bottom-20">
+					</div>
+				</div>
+
+				<div class="links margin-bottom-10">
+				  <a href="http://cocodataset.org/#home" target="_blank" class="link-style">Homepage&nbsp;<span class="fa fa-link"></span></a>
+				</div>
+
+				<div>
+					The COCO dataset, which stands for Common Objects in Context, consists of everyday scenes ranging from the busy streets of a city to animals on a hillside.
+					The 2014 version, used by TBD, has 80 object categories of labeled and segmented images. This dataset contains 82 783 training, 40 504 validation, and 40 775
+					testing images. There are nearly 270k segmented people and 886k total segmented object instances in the 2014 training and validation datasets alone.
+				</div>
+			</div>
+			<br><br>
+
 			<div class="dataset" id="librispeech">
 				<div>
 					<h3>LibriSpeech ASR</h3>
@@ -175,17 +236,17 @@
 				<div class="links margin-bottom-10">
 				  <a href="http://www.openslr.org/12/" target="_blank" class="link-style">Homepage&nbsp;<span class="fa fa-link"></span></a>
 				</div>
-					
+
 				<div>
 					LibriSpeech is a speech recognition dataset derived from
 					audiobook recordings containing
 					approximately one thousand hours of 16kHz read English speech. The dataset contains about 280 thousand audio files, each labeled with the corresponding text.
-					The dataset is divided into three parts: a 100-hour set, a 360-hour set, and a 500-hour set. 
-					The total size of all the decompressed training data can be up to about 167 GB.
+					The dataset is divided into three parts: a 100-hour set, a 360-hour set, and a 500-hour set.
+					The total size of all the decompressed training data can be up to approximately 167 GB.
 				</div>
 			</div>
 			<br><br>
-			
+
 			<div class="dataset" id="openai-gym">
 				<div>
 					<h3>OpenAI Gym</h3>
@@ -196,27 +257,44 @@
 				<div class="links margin-bottom-10">
 				  <a href="https://gym.openai.com/" target="_blank" class="link-style">Homepage&nbsp;<span class="fa fa-link"></span></a>
 				</div>
-					
+
 				<div>
-					OpenAI Gym is a toolkit for developing and comparing reinforcement learning algorithms. It supports teaching agents everything from walking to playing various games and simulations. It includes a diverse suite of environments that range from easy to difficult and involve many different kinds of environments, such as classic control tasks, algorithmic tasks, Atari games and 2D and 3D robot simulations. 
+					OpenAI Gym is a toolkit for developing and comparing reinforcement learning algorithms. It supports teaching agents everything from walking to playing various games and simulations. It includes a diverse suite of environments that range from easy to difficult and involve many kinds of environments, such as classic control tasks, algorithmic tasks, Atari games and 2D and 3D robot simulations.
 				</div>
 			</div>
 			<br><br>
-          
+
+			<div class="dataset" id="ml-20m">
+				<div>
+					<h3>MovieLens 20M</h3>
+					<div class="margin-bottom-20">
+					</div>
+				</div>
+
+				<div class="links margin-bottom-10">
+				  <a href="https://grouplens.org/datasets/movielens/20m/" target="_blank" class="link-style">Homepage&nbsp;<span class="fa fa-link"></span></a>
+				</div>
+
+				<div>
+					The ml-20m dataset used for the NCF model consists of 5-star ratings from MovieLens, an online service which recommends movies for its users to watch. The raw dataset has 20 000 263 ratings across 27 278 movies, and was created from 27 278 users between January 09, 1995 and March 31, 2015. Each user represented in the dataset has rated at least 20 movies.
+				</div>
+			</div>
+			<br><br>
+
 		</div>
 		</div>
         <br><br>
 	</main>
 	<script>w3.includeHTML();</script>
 
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" 
-		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" 
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
 		crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" 
-		integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+		integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
 		crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" 
-		integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" 
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"
+		integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
 		crossorigin="anonymous"></script>
 
 </body>
