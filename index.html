@@ -109,7 +109,7 @@
 				<td>5<br>12</td>
 				<td>LSTM<br>Attention</td>
 				<td>TensorFlow, MXNet<br>TensorFlow</td>
-				<td>Bojian Zhang<br>Andrew Pelegris</td>
+				<td>Bojian Zhang<br>Andrew Pelegris<br>Yu Bo Gao</td>
 			  </tr>
 			  <tr class='clickable-row' data-href='#language-modeling'>
 				<td>Language modeling</td>
@@ -121,11 +121,11 @@
 			  </tr>
 			  <tr class='clickable-row' data-href='#object-detection'>
 				<td>Object detection</td>
-				<td>Faster R-CNN</td>
+				<td>MaskRCNN<br>EfficientDet</td>
 				<td>101</td>
 				<td>CONV</td>
-				<td>TensorFlow, MXNet</td>
-				<td>Hongyu Zhu</td>
+				<td>PyTorch<br>PyTorch</td>
+				<td>Hongyu Zhu<br>Yu Bo Gao</td>
 			  </tr>
 			  <tr class='clickable-row' data-href='#speech-recognition'>
 				<td>Speech recognition</td>
@@ -266,31 +266,16 @@ alternative to recurrent layers.
                         <div id="collapseSeq2seq" class="card-body collapse" data-parent="#accordion" >
                             <div class="card-block image-content">
                               <div class="margin-10 gray-border">
-                                  <p class="text-align-center margin-bottom-10">Training curve (time in hours)</p>
-                                  <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/sigmetrics18/training_seq2seq.png"/>
+                                  <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/ybgao-new-plots/gnmt-training-curve-1.png"/>
                               </div>
                               <div class="margin-10 gray-border">
-                                  <p class="text-align-center margin-bottom-10">Training curve (time in epochs)</p>
-                                  <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/sigmetrics18/training_epoch_seq2seq.png"/>
+                                  <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/ybgao-new-plots/gnmt-training-curve-2.png"/>
                               </div>
                               <div class="margin-10 gray-border">
-                                  <p class="text-align-center margin-bottom-10">Compute Utilization</p>
-                                  <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/sigmetrics18/occupation_seq2seq.png"/>
+                                  <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/ybgao-new-plots/gnmt-compute-util.png"/>
                               </div>
-
-							  <div class="margin-10 gray-border">
-                                  <p class="text-align-center margin-bottom-10">FP32 Utilization</p>
-                                  <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/sigmetrics18/utilization_seq2seq.png"/>
-                              </div>
-
-							  <div class="margin-10 gray-border">
-                                  <p class="text-align-center margin-bottom-10">Throughput</p>
-                                  <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/sigmetrics18/throughput_seq2seq.png"/>
-                              </div>
-
-                              <div class="margin-10 gray-border">
-                                  <p class="text-align-center margin-bottom-10">Memory breakdown</p>
-                                  <img class="col-md-6 col-xs-12 l margin-bottom-20 max-width-100 text-align-center width-500" src="./images/sigmetrics18/memory_seq2seq.png"/>
+							                <div class="margin-10 gray-border">
+                                  <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/ybgao-new-plots/gnmt-throughput.png"/>
                               </div>
                             </div>
                         </div>
@@ -303,103 +288,11 @@ alternative to recurrent layers.
                         <div id="collapseOne" class="card-body collapse" data-parent="#accordion" >
                             <div class="card-block image-content">
                               <div class="margin-10 gray-border">
-                                  <p class="text-align-center margin-bottom-10">Compute Utilization</p>
-                                  <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/sigmetrics18/occupation_transformer.png"/>
+                                  <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/ybgao-new-plots/transformer-compute-util.png"/>
                               </div>
 
 							  <div class="margin-10 gray-border">
-                                  <p class="text-align-center margin-bottom-10">FP32 Utilization</p>
-                                  <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/sigmetrics18/utilization_transformer.png"/>
-                              </div>
-
-							  <div class="margin-10 gray-border">
-                                  <p class="text-align-center margin-bottom-10">Throughput</p>
-                                  <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/sigmetrics18/throughput_transformer.png"/>
-                              </div>
-
-                              <div class="margin-10 gray-border">
-                                  <p class="text-align-center margin-bottom-10">Memory breakdown</p>
-                                  <img class="col-md-6 col-xs-12 l margin-bottom-20 max-width-100 text-align-center width-500" src="./images/sigmetrics18/memory_transformer.png"/>
-                              </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <br><br>
-
-
-            <div>
-				<h3 id="language-modeling">Language Modeling</h3>
-                <div class="margin-bottom-20">Language Modeling refers to the task of determining the 
-probability distribution of a sentence or a sequence of works based on the context provided by the
-surround words. Language models analyze a body of text, often represented as sequences of word embedding vectors, to predict
-the likelihood of certain words or phrases. Language models such as BERT and XLNet can greatly improve the accuracy of other
-downstream NLP tasks such as machine translation and question answering. 
-            <br><br>
-This benchmark focuses on BERT(Bidirectional Encoder Representations from Transformers), which is a multi-layer bidirectional Transformer, with only the encoder part. There are many newer LM such as RoBERTa and DistilBERT, but since it architecture has many similarities with
-the original BERT model, we believe the benchmarking results for BERT is representative to many of such transformer based Language Models.
-            <br><br>
-BERT appears in two training settings: pre-training and fine-tuning. The pre-training phase uses an abundance of text from
-sources such as Wikipedia and published books (see the dataset link below), and trains for many epochs. The fine-tuning phase locks
-most of the weights of the BERT model, and attaches a few output layers for the down-stream task, e.g. question-answering. This usually converges really fast since most of the parameters are fixed, as seen in the loss curve in the fine-tuning section.
-            <br><br>
-We perform the benchmark for both FP32 and mixed-precision training, as mixed precision training is commonly seen on BERT
-due to its high computation demand. We also utilize the TensorCores on our RTX2080 Ti device.
-            <br><br>
-Given the large model size of BERT and the size of the dataset, the pre-training takes many days to train even on 
-a high-end Multi-GPU workstation such as the DGX system. Therefore, we decided to skip the complete pre-training of BERT, 
-but still analyze the convergence for 1 epoch. The training suggests that the model is converging properly. 
-The profiling results is based on 500 iterations, and assumes the same compute behavior for each iteration.
-            <br><br>
-
-
-            </div>
-
-            <div class="links margin-bottom-10 link-container">
-              <div>TBD repository:&nbsp;<a href="https://github.com/tbd-ai/tbd-suite/tree/master/LanguageModeling-BERT" target="_blank" class="link-style">BERT&nbsp;<span class="fa fa-link"></span></a>&nbsp;&nbsp;&nbsp;</div>
-              <div>Original models:&nbsp;<a href="https://arxiv.org/abs/1810.04805" target="_blank" class="link-style">BERT&nbsp;<span class="fa fa-link"></span></a>&nbsp;&nbsp;&nbsp;</div>
-              <div>Datasets:&nbsp;<a href="./datasets.html#bert_dataset" target="_blank" class="link-style">Wikipedia/BookCorpus/SQuAD &nbsp;<span class="fa fa-link"></span></a>&nbsp;&nbsp;&nbsp;</div>
-            </div>
-          
-				<div id="accordion" class="accordion">
-                    <div class="card mb-0">
-                        <h5 class="card-header collapsed" data-toggle="collapse" href="#BERT_PT">Details of BERT Pre-training(PyTorch) </h5>
-                        <div id="BERT_PT" class="card-body collapse" data-parent="#accordion" >
-                            <div class="card-block image-content">
-                              <div class="margin-10 gray-border">
-                                  <p class="text-align-center margin-bottom-10">Throughput</p>
-                                  <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/sigmetrics18/throughput_bert_pt.png"/>
-                              </div>
-
-							  <div class="margin-10 gray-border">
-                                  <p class="text-align-center margin-bottom-10">FP16 Core Utilization</p>
-                                  <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/sigmetrics18/core_utilization_bert_pt.png"/>
-                              </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-             <br>
-             <div id="accordion" class="accordion">
-                    <div class="card mb-0">
-                        <h5 class="card-header collapsed" data-toggle="collapse" href="#BERT_FT">Details of BERT Fine-tuning(PyTorch) </h5>
-                        <div id="BERT_FT" class="card-body collapse" data-parent="#accordion" >
-                            <div class="card-block image-content">
-                              <div class="margin-10 gray-border">
-                                  <p class="text-align-center margin-bottom-10">Training Curve</p>
-                                  <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/sigmetrics18/training_bert_ft.png"/>
-                              </div>
-
-							  <div class="margin-10 gray-border">
-                                  <p class="text-align-center margin-bottom-10">Training Throughput</p>
-                                  <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/sigmetrics18/throughput_bert_ft.png"/>
-                              </div>
-
-							  <div class="margin-10 gray-border">
-                                  <p class="text-align-center margin-bottom-10">FP16 Core Utilization</p>
-                                  <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/sigmetrics18/core_bert_ft.png"/>
+                                  <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/ybgao-new-plots/transformer-core-util.png"/>
                               </div>
                             </div>
                         </div>
@@ -431,25 +324,51 @@ is part of a given object. We have chosen ResNet-50 as the pre-trained convoluti
               <a href="https://arxiv.org/abs/1506.01497" target="_blank" class="link-style">Original model&nbsp;<span class="fa fa-link"></span></a>
               <a href="./datasets.html#voc" target="_blank" class="link-style">Dataset&nbsp;<span class="fa fa-link"></span></a>
             </div>
-                <div id="accordion" class="accordion">
-                    <div class="card mb-0">
-                        <h5 class="card-header collapsed" data-toggle="collapse" href="#collapseFasterRCNN">Details of Faster R-CNN</h5>
-                        <div id="collapseFasterRCNN" class="card-body collapse" data-parent="#accordion" >
-							<i>MXNet results:</i><br>
-							<i>Training quality</i>: 70+% mAP so far<br>
-							<i>Throughtput</i>: 2.29 samples/sec<br>
-							<i>GPU Compute Utilizaiton</i>: 90.29%<br>
-							<i>FP32 Utilization</i>: 70.9%<br><br>
+			<div id="accordion" class="accordion">
+				<div class="card mb-0">
+					<h5 class="card-header collapsed" data-toggle="collapse" href="#collapseMaskRCNN">Details of MaskRCNN </h5>
+					<div id="collapseMaskRCNN" class="card-body collapse" data-parent="#accordion" >
+						<div class="card-block image-content">
+						  <div class="margin-10 gray-border">
+							  <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/ybgao-new-plots/maskrcnn-training-curve-1.png"/>
+						  </div>
+						  <div class="margin-10 gray-border">
+							  <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/ybgao-new-plots/maskrcnn-training-curve-2.png"/>
+						  </div>
+						  <div class="margin-10 gray-border">
+							  <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/ybgao-new-plots/maskrcnn-throughput.png"/>
+						  </div>
+						  <div class="margin-10 gray-border">
+							  <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/ybgao-new-plots/maskrcnn-compute-util.png"/>
+						  </div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<br>
+			<div id="accordion" class="accordion">
+				<div class="card mb-0">
+					<h5 class="card-header collapsed" data-toggle="collapse" href="#collapseEffdet">Details of EfficientDet </h5>
+					<div id="collapseEffdet" class="card-body collapse" data-parent="#accordion" >
+						<div class="card-block image-content">
+						  <div class="margin-10 gray-border">
+							  <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/ybgao-new-plots/effdet-pytorch-training-curve.png"/>
+						  </div>
+						  <div class="margin-10 gray-border">
+							  <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/ybgao-new-plots/effdet-throughput.png"/>
+						  </div>
+						  <div class="margin-10 gray-border">
+							  <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/ybgao-new-plots/effdet-compute-util-1.png"/>
+						  </div>
+						  <div class="margin-10 gray-border">
+							  <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/ybgao-new-plots/effdet-pytorch-core.png"/>
+						  </div>
+						</div>
+					</div>
+				</div>
+			</div>
 
-							<i>TensorFlow results:</i><br>
-							<i>Training quality</i>: 65+% mAP so far<br>
-							<i>Throughtput</i>: 2.32 samples/sec<br>
-							<i>GPU Compute Utilizaiton</i>: 89.41%<br>
-							<i>FP32 Utilization</i>: 58.9%%<br>
-                        </div>
-                    </div>
-                </div>
-            </div>
+			</div>
             <br><br>
 			<div>
 			<h3 id="speech-recognition">Speech Recognition</h3>
