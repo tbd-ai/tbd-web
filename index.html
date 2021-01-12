@@ -3,20 +3,20 @@
 
 <head>
 
-	<title>TBD - Training Benchmark for DNNs</title>
+  <title>TBD - Training Benchmark for DNNs</title>
 
-	<meta charset="utf-8">
-	<meta name="viewpoint" content="width=device-width, initial-scale=1">
-	<link rel="icon" href="./images/uoft.png">
+  <meta charset="utf-8">
+  <meta name="viewpoint" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="./images/uoft.png">
 
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
-		integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-	<link rel="stylesheet" type="text/css" href="ecosystem.css">
-	<link rel="stylesheet" type="text/css" href="tbd.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
+    integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="ecosystem.css">
+  <link rel="stylesheet" type="text/css" href="tbd.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
-	<script src="https://www.w3schools.com/lib/w3.js"></script>
-	<script src="https://use.fontawesome.com/fd789ca0f7.js"></script>
+  <script src="https://www.w3schools.com/lib/w3.js"></script>
+  <script src="https://use.fontawesome.com/fd789ca0f7.js"></script>
 
 </head>
 
@@ -176,90 +176,222 @@
         similar to AlexNet’s CNN model, but improve accuracy through
         novel algorithm techniques that enable extremely deep networks.
             </div>
-
-            <div class="links margin-bottom-10 link-container">
-              <div>TBD repository:&nbsp;<a href="https://github.com/tbd-ai/tbd-suite/tree/master/ImageClassification-Resnet_50" target="_blank" class="link-style">ResNet&nbsp;<span class="fa fa-link"></span></a>&nbsp;&nbsp;&nbsp;<a href="https://github.com/tbd-ai/tbd-suite/tree/master/ImageClassification-Inception_v3" target="_blank" class="link-style">Inception-v3&nbsp;<span class="fa fa-link"></span></a></div>
-              <div>Original models:&nbsp;<a href="https://arxiv.org/abs/1603.05027" target="_blank" class="link-style">ResNet-50&nbsp;<span class="fa fa-link"></span></a>&nbsp;&nbsp;&nbsp;<a href="https://arxiv.org/abs/1512.00567" target="_blank" class="link-style">Inception-v3&nbsp;<span class="fa fa-link"></span></a></div>
-              <div><a href="./datasets.html#image-net" target="_blank" class="link-style">Dataset&nbsp;<span class="fa fa-link"></span></a></div>
+            <div class="btn-group margin-middle" role="group" aria-label="First group">
+              <button type="button" class="btn btn-secondary" target="_blank" data-toggle="modal"
+                data-target="#BibTeXModal">BibTeX Reference</button>
             </div>
-                <div id="accordion" class="accordion">
-                    <div class="card mb-0">
-                        <h5 class="card-header collapsed" data-toggle="collapse" href="#collapseResNet">Details of ResNet-50 </h5>
-                        <div id="collapseResNet" class="card-body collapse" data-parent="#accordion" >
-                            <div class="card-block image-content">
-                              <div class="margin-10 gray-border">
-                                  <p class="text-align-center margin-bottom-10">Training curve</p>
-                                  <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/sigmetrics18/training_resnet.png"/>
-                              </div>
+            <div class="btn-group margin-right" role="group" aria-label="Second group">
+              <button type="button" class="btn btn-secondary" target="_blank"
+                onclick="location.href = 'http://www.sysml.cc/doc/167.pdf';">SysML Short Paper</button>
+            </div>
+          </div>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="BibTeXModal" tabindex="-1" role="dialog" aria-labelledby="BibTeXModalLabel"
+          aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="BibTeXModal">BibTeX Reference</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                If you use our benchmark in your research, please reference us:<br><br>
+                arxiv bibtex:<br>
+                @article{zhu2018tbd,
+                title={TBD: Benchmarking and Analyzing Deep Neural Network Training},
+                author={Zhu, Hongyu and Akrout, Mohamed and Zheng, Bojian and Pelegris, Andrew and Phanishayee, Amar and
+                Schroeder, Bianca and Pekhimenko, Gennady},
+                journal={arXiv preprint arXiv:1803.06905},
+                year={2018}
+                }
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
 
-                              <div class="margin-10 gray-border">
-                                  <p class="text-align-center margin-bottom-10">Compute Utilization</p>
-                                  <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/sigmetrics18/occupation_resnet.png"/>
-                              </div>
 
-							  <div class="margin-10 gray-border">
-                                  <p class="text-align-center margin-bottom-10">FP32 Utilization</p>
-                                  <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/sigmetrics18/utilization_resnet.png"/>
-                              </div>
+      </div>
+      <br>
+      <table class="table table-hover app-table">
+        <thead>
+          <tr style="font-size: 20px;">
+            <th>Application</th>
+            <th>Model</th>
+            <th>Number of Layers</th>
+            <th>Dominant Layer</th>
+            <th>Implementations</th>
+            <th>Maintainers</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class='clickable-row' data-href='#image-classification'>
+            <td>Image classification</td>
+            <td>ResNet-50<br>Inception-v3</td>
+            <td>50 (152 max)<br>42</td>
+            <td>CONV</td>
+            <td>TensorFlow, MXNet, CNTK</td>
+            <td>Hongyu Zhu</td>
+          </tr>
+          <tr class='clickable-row' data-href='#machine-translation'>
+            <td>Machine translation</td>
+            <td>Seq2Seq<br>Transformer</td>
+            <td>5<br>12</td>
+            <td>LSTM<br>Attention</td>
+            <td>TensorFlow, MXNet<br>TensorFlow</td>
+            <td>Bojian Zhang<br>Andrew Pelegris</td>
+          </tr>
+          <tr class='clickable-row' data-href='#language-modeling'>
+            <td>Language modeling</td>
+            <td>BERT</td>
+            <td>24</td>
+            <td>Attention</td>
+            <td>PyTorch</td>
+            <td>Xin Li</td>
+          </tr>
+          <tr class='clickable-row' data-href='#object-detection'>
+            <td>Object detection</td>
+            <td>Faster R-CNN</td>
+            <td>101</td>
+            <td>CONV</td>
+            <td>TensorFlow, MXNet</td>
+            <td>Hongyu Zhu</td>
+          </tr>
+          <tr class='clickable-row' data-href='#speech-recognition'>
+            <td>Speech recognition</td>
+            <td>Deep Speech 2</td>
+            <td>9</td>
+            <td>RNN</td>
+            <td>MXNet, PyTorch</td>
+            <td>Kuei-Fang Hsueh, Jiahuang Lin</td>
+          </tr>
+          <tr class='clickable-row' data-href='#adversarial-learning'>
+            <td>Recommendation system</td>
+            <td>NCF</td>
+            <td>4</td>
+            <td>GMF, MLP</td>
+            <td>PyTorch</td>
+            <td>Izaak Niksan</td>
+          </tr>
+          <tr class='clickable-row' data-href='#adversarial-learning'>
+            <td>Adversarial learning</td>
+            <td>WGAN</td>
+            <td>14+14</td>
+            <td>CONV</td>
+            <td>TensorFlow</td>
+            <td>Andrew Pelegris</td>
+          </tr>
+          <tr class='clickable-row' data-href='#deep-reinforcement-learning'>
+            <td>Deep reinforcement learning</td>
+            <td>A3C</td>
+            <td>4</td>
+            <td>CONV</td>
+            <td>TensorFlow, MXNet</td>
+            <td>Mohamed Akrout</td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <p>(Note that all of the following results were generated on NVIDIA RTX 2080Ti GPU)</p>
 
-							  <div class="margin-10 gray-border">
-                                  <p class="text-align-center margin-bottom-10">Throughput</p>
-                                  <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/sigmetrics18/throughput_resnet.png"/>
-                              </div>
+      <!-- Details about each model-->
+      <div class="container">
+        <div>
+          <h3 id="image-classification">Image classification</h3>
+          <div class="margin-bottom-20">Image classification is the archetypal
+            deep learning application, as this was the first domain where a deep
+            neural network (AlexNet) proved to be a watershed, beating
+            all prior traditional methods. In our work, we use two very recent
+            models, Inception-v3 and Resnet, which follow a structure
+            similar to AlexNet’s CNN model, but improve accuracy through
+            novel algorithm techniques that enable extremely deep networks.
+          </div>
 
-                            </div>
-                        </div>
-                    </div>
+          <div class="links margin-bottom-10 link-container">
+            <div>TBD repository:&nbsp;<a
+                href="https://github.com/tbd-ai/tbd-suite/tree/master/ImageClassification-Resnet_50" target="_blank"
+                class="link-style">ResNet&nbsp;<span class="fa fa-link"></span></a>&nbsp;&nbsp;&nbsp;<a
+                href="https://github.com/tbd-ai/tbd-suite/tree/master/ImageClassification-Inception_v3" target="_blank"
+                class="link-style">Inception-v3&nbsp;<span class="fa fa-link"></span></a></div>
+            <div>Original models:&nbsp;<a href="https://arxiv.org/abs/1603.05027" target="_blank"
+                class="link-style">ResNet-50&nbsp;<span class="fa fa-link"></span></a>&nbsp;&nbsp;&nbsp;<a
+                href="https://arxiv.org/abs/1512.00567" target="_blank" class="link-style">Inception-v3&nbsp;<span
+                  class="fa fa-link"></span></a></div>
+            <div><a href="./datasets.html#image-net" target="_blank" class="link-style">Dataset&nbsp;<span
+                  class="fa fa-link"></span></a></div>
+          </div>
+          <div id="accordion" class="accordion">
+            <div class="card mb-0">
+              <h5 class="card-header collapsed" data-toggle="collapse" href="#collapseResNet">Details of ResNet-50 </h5>
+              <div id="collapseResNet" class="card-body collapse" data-parent="#accordion">
+                <div class="card-block image-content">
+                  <div class="margin-10 gray-border">
+                    <p class="text-align-center margin-bottom-10">Training curve</p>
+                    <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500"
+                      src="./images/sigmetrics18/training_resnet.png" />
+                  </div>
+
+                  <div class="margin-10 gray-border">
+                    <p class="text-align-center margin-bottom-10">Compute Utilization</p>
+                    <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500"
+                      src="./images/sigmetrics18/occupation_resnet.png" />
+                  </div>
+
+                  <div class="margin-10 gray-border">
+                    <p class="text-align-center margin-bottom-10">FP32 Utilization</p>
+                    <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500"
+                      src="./images/sigmetrics18/utilization_resnet.png" />
+                  </div>
+
+                  <div class="margin-10 gray-border">
+                    <p class="text-align-center margin-bottom-10">Throughput</p>
+                    <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500"
+                      src="./images/sigmetrics18/throughput_resnet.png" />
+                  </div>
+
                 </div>
-				<br>
-				<div id="accordion" class="accordion">
-                    <div class="card mb-0">
-                        <h5 class="card-header collapsed" data-toggle="collapse" href="#collapseInception">Details of Inception-v3 </h5>
-                        <div id="collapseInception" class="card-body collapse" data-parent="#accordion" >
-                            <div class="card-block image-content">
-                              <div class="margin-10 gray-border">
-                                  <p class="text-align-center margin-bottom-10">Training curve</p>
-                                  <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/sigmetrics18/training_inception.png"/>
-                              </div>
+              </div>
+            </div>
+          </div>
+          <br>
+          <div id="accordion" class="accordion">
+            <div class="card mb-0">
+              <h5 class="card-header collapsed" data-toggle="collapse" href="#collapseInception">Details of Inception-v3
+              </h5>
+              <div id="collapseInception" class="card-body collapse" data-parent="#accordion">
+                <div class="card-block image-content">
+                  <div class="margin-10 gray-border">
+                    <p class="text-align-center margin-bottom-10">Training curve</p>
+                    <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500"
+                      src="./images/sigmetrics18/training_inception.png" />
+                  </div>
 
-                              <div class="margin-10 gray-border">
-                                  <p class="text-align-center margin-bottom-10">Compute Utilization</p>
-                                  <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/sigmetrics18/occupation_inception.png"/>
-                              </div>
+                  <div class="margin-10 gray-border">
+                    <p class="text-align-center margin-bottom-10">Compute Utilization</p>
+                    <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500"
+                      src="./images/sigmetrics18/occupation_inception.png" />
+                  </div>
 
-							  <div class="margin-10 gray-border">
-                                  <p class="text-align-center margin-bottom-10">FP32 Utilization</p>
-                                  <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/sigmetrics18/utilization_inception.png"/>
-                              </div>
+                  <div class="margin-10 gray-border">
+                    <p class="text-align-center margin-bottom-10">FP32 Utilization</p>
+                    <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500"
+                      src="./images/sigmetrics18/utilization_inception.png" />
+                  </div>
 
-							  <div class="margin-10 gray-border">
-                                  <p class="text-align-center margin-bottom-10">Throughput</p>
-                                  <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/sigmetrics18/throughput_inception.png"/>
-                              </div>
-                            </div>
-                        </div>
-                    </div>
+                  <div class="margin-10 gray-border">
+                    <p class="text-align-center margin-bottom-10">Throughput</p>
+                    <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500"
+                      src="./images/sigmetrics18/throughput_inception.png" />
+                  </div>
                 </div>
-            </div>
-			<br><br>
-			<div>
-			<h3 id="machine-translation">Machine Translation</h3>
-                <div class="margin-bottom-20">Unlike image processing, machine
-translation involves the analysis of sequential data and typically
-relies on RNNs using LSTM cells as its core algorithm. We select
-NMT and Sockeye, developed by the TensorFlow and Amazon
-Web Service teams, respectively, as representative RNN-based
-models in this area. We also include an implementation of the recently
-introduced Transformer model, which achieves a new
-state-of-the-art in translation quality using attention layers as an
-alternative to recurrent layers.
+              </div>
             </div>
 
-            <div class="links margin-bottom-10 link-container">
-              <div>TBD repository:&nbsp;<a href="https://github.com/tbd-ai/tbd-suite/tree/master/MachineTranslation-Seq2Seq/NMT" target="_blank" class="link-style">NMT&nbsp;<span class="fa fa-link"></span></a>&nbsp;&nbsp;&nbsp;<a href="https://github.com/tbd-ai/tbd-suite/tree/master/MachineTranslation-Seq2Seq/Sockeye" target="_blank" class="link-style">Sockeye&nbsp;<span class="fa fa-link"></span></a>&nbsp;&nbsp;&nbsp;<a href="https://github.com/tbd-ai/tbd-suite/tree/master/MachineTranslation-Transformer" target="_blank" class="link-style">Transformer&nbsp;<span class="fa fa-link"></span></a></div>
-              <div>Original models:&nbsp;<a href="https://arxiv.org/abs/1409.0473" target="_blank" class="link-style">Seq2Seq&nbsp;<span class="fa fa-link"></span></a>&nbsp;&nbsp;&nbsp;<a href="https://arxiv.org/abs/1706.03762" target="_blank" class="link-style">Transformer&nbsp;<span class="fa fa-link"></span></a></div>
-              <div>Datasets:&nbsp;<a href="./datasets.html#iwslt" target="_blank" class="link-style">IWSLT&nbsp;<span class="fa fa-link"></span></a>&nbsp;&nbsp;&nbsp;<a href="./datasets.html#wmt" target="_blank" class="link-style">WMT&nbsp;<span class="fa fa-link"></span></a></div>
-            </div>
                 <div id="accordion" class="accordion">
                     <div class="card mb-0">
                         <h5 class="card-header collapsed" data-toggle="collapse" href="#collapseSeq2seq">Details of Seq2Seq</h5>
@@ -298,6 +430,7 @@ alternative to recurrent layers.
                         </div>
                     </div>
                 </div>
+              </div>
             </div>
             <br><br>
             
@@ -381,220 +514,309 @@ model contains two convolutional layers, plus seven regular recurrent
 layers or Gate Recurrent Units (GRUs), unlike the machine translation RNN
 models included in our benchmark suite, which use LSTM layers.
             </div>
+        <div>
+          <h3 id="object-detection">Object Detection</h3>
+          <div class="margin-bottom-20">Object detection applications, such as face detection, are another popular deep
+            learning application and
+            can be thought of as an extension of image classification, where an algorithm usually first breaks down
+            an image into regions of interest and then applies image classification to each region. We chose to
+            include Faster R-CNN, which achieves state-of-the-art results on the Pascal VOC datasets, and Mask R-
+            CNN, which instead uses the large-scale coco dataset.<br /><br />
 
-            <div class="links margin-bottom-10 link-container">
-              <a href="https://github.com/tbd-ai/tbd-suite/tree/master/SpeechRecognition-DeepSpeech2" target="_blank" class="link-style"><div>TBD repository&nbsp;<span class="fa fa-link"></span></div></a>
-              <a href="https://arxiv.org/abs/1512.02595" target="_blank" class="link-style">Original model&nbsp;<span class="fa fa-link"></span></a>
-              <a href="./datasets.html#librispeech" target="_blank" class="link-style">Dataset&nbsp;<span class="fa fa-link"></span></a>
+            A training iteration of Faster R-CNN consists of the forward and backward passes of two networks (one
+            for identifying regions and one for classification), weight sharing and local fine-tuning. The convolution
+            stack in a Faster R-CNN network is usually a standard image classification network, in our work: a 101-
+            layer ResNet.<br /><br />
+
+            Mask R-CNN improves on Faster R-CNN by improving the rectangular bounding boxes to a pixel-level
+            resolution. This is done in part by adding a branch to the network which outputs whether each pixel
+            is part of a given object. We have chosen ResNet-50 as the pre-trained convolution stack for this model.
+          </div>
+
+          <div class="links margin-bottom-10 link-container">
+            <a href="https://github.com/tbd-ai/tbd-suite/tree/master/ObjectDetection-Faster_RCNN" target="_blank"
+              class="link-style">
+              <div>TBD repository&nbsp;<span class="fa fa-link"></span></div>
+            </a>
+            <a href="https://arxiv.org/abs/1506.01497" target="_blank" class="link-style">Original model&nbsp;<span
+                class="fa fa-link"></span></a>
+            <a href="./datasets.html#voc" target="_blank" class="link-style">Dataset&nbsp;<span
+                class="fa fa-link"></span></a>
+          </div>
+          <div id="accordion" class="accordion">
+            <div class="card mb-0">
+              <h5 class="card-header collapsed" data-toggle="collapse" href="#collapseFasterRCNN">Details of Faster
+                R-CNN</h5>
+              <div id="collapseFasterRCNN" class="card-body collapse" data-parent="#accordion">
+                <i>MXNet results:</i><br>
+                <i>Training quality</i>: 70+% mAP so far<br>
+                <i>Throughtput</i>: 2.29 samples/sec<br>
+                <i>GPU Compute Utilizaiton</i>: 90.29%<br>
+                <i>FP32 Utilization</i>: 70.9%<br><br>
+
+                <i>TensorFlow results:</i><br>
+                <i>Training quality</i>: 65+% mAP so far<br>
+                <i>Throughtput</i>: 2.32 samples/sec<br>
+                <i>GPU Compute Utilizaiton</i>: 89.41%<br>
+                <i>FP32 Utilization</i>: 58.9%%<br>
+              </div>
             </div>
-                <div id="accordion" class="accordion">
-                    <div class="card mb-0">
-                        <h5 class="card-header collapsed" data-toggle="collapse" href="#collapseDS2">Details of Deep Speech 2</h5>
-                        <div id="collapseDS2" class="card-body collapse" data-parent="#accordion" >
-                            <div class="card-block image-content">
-                              <div class="margin-10 gray-border">
-                                  <p class="text-align-center margin-bottom-10">Compute Utilization</p>
-                                  <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/sigmetrics18/occupation_DS2.png"/>
-                              </div>
-
-							  <div class="margin-10 gray-border">
-                                  <p class="text-align-center margin-bottom-10">FP32 Utilization</p>
-                                  <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/sigmetrics18/utilization_DS2.png"/>
-                              </div>
-
-							  <div class="margin-10 gray-border">
-                                  <p class="text-align-center margin-bottom-10">Throughput</p>
-                                  <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/sigmetrics18/throughput_DS2.png"/>
-                              </div>
-
-                              <div class="margin-10 gray-border">
-                                  <p class="text-align-center margin-bottom-10">Memory breakdown</p>
-                                  <img class="col-md-6 col-xs-12 l margin-bottom-20 max-width-100 text-align-center width-500" src="./images/sigmetrics18/memory_DS2.png"/>
-                              </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-			<br><br>
-			<div>
-			<h3 id="adversarial-learning">Generative Adversarial Networks</h3>
-                <div class="margin-bottom-20">A generative adversarial
-network (GAN) trains two networks: one generator network and
-one discriminator network. The generator is trained to generate
-data samples that mimic the real samples, and the discriminator
-is trained to distinguish whether a data sample is genuine or synthesized.
-GANs are used, for example, to synthetically generate
-photographs that look at least superficially authentic to human
-observers.
-While GANs are powerful generative models, GAN training
-suffers from instability. The WGAN model is a milestone that makes
-great progress towards stable training. Recently Gulrajani et al.
-proposed an improvement based on the WGAN to enable stable
-training on a wide range of GAN architectures. We include this
-model in our benchmark suite, since it is one of the leading DNN
-algorithms for unsupervised learning.
-            </div>
-
-            <div class="links margin-bottom-10 link-container">
-              <a href="https://github.com/tbd-ai/tbd-suite/tree/master/UnsupervisedLearning-WGAN" target="_blank" class="link-style"><div>TBD repository&nbsp;<span class="fa fa-link"></span></div></a>
-              <a href="https://arxiv.org/abs/1704.00028" target="_blank" class="link-style">Original model&nbsp;<span class="fa fa-link"></span></a>
-              <a href="./datasets.html#image-net" target="_blank" class="link-style">Dataset&nbsp;<span class="fa fa-link"></span></a>
-            </div>
-                <div id="accordion" class="accordion">
-                    <div class="card mb-0">
-                        <h5 class="card-header collapsed" data-toggle="collapse" href="#collapseWGAN">Details of WGAN</h5>
-                        <div id="collapseWGAN" class="card-body collapse" data-parent="#accordion" >
-                            <div class="card-block image-content">
-                              <div class="margin-10 gray-border">
-                                  <p class="text-align-center margin-bottom-10">Compute Utilization</p>
-                                  <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/sigmetrics18/occupation_wgan.png"/>
-                              </div>
-
-							  <div class="margin-10 gray-border">
-                                  <p class="text-align-center margin-bottom-10">FP32 Utilization</p>
-                                  <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/sigmetrics18/utilization_wgan.png"/>
-                              </div>
-
-							  <div class="margin-10 gray-border">
-                                  <p class="text-align-center margin-bottom-10">Throughput</p>
-                                  <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/sigmetrics18/throughput_wgan.png"/>
-                              </div>
-
-                              <div class="margin-10 gray-border">
-                                  <p class="text-align-center margin-bottom-10">Memory breakdown</p>
-                                  <img class="col-md-6 col-xs-12 l margin-bottom-20 max-width-100 text-align-center width-500" src="./images/sigmetrics18/memory_wgan.png"/>
-                              </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-			<br><br>
-            <div>
-            <h3 id="recommendation">Recommendation</h3>
-                <div class="margin-bottom-20">Recommender systems aim to predict user preferences, and are often applied to movies, news, books,
-and music. Collaborative filtering, a common technique used by these recommender systems, is based
-on applying users’ previous behaviour to predict future interactions. This recommendation model,
-named Neural Collaborative Filtering (NCF), makes use of Deep Neural Networks that are trained with
-user-item interactions. The model uses a combination of a Multi Layer Perceptron, which is a
-feed-forward neural network with at least three layers, and Generalized Matrix Factorization, which is
-an extension of the inner product. The inputs to the model are one-hot encodings of both user and item
-data.
-            </div>
-
-            <div class="links margin-bottom-10 link-container">
-              <a href="https://github.com/tbd-ai/tbd-suite/tree/master/Recommendation-NCF" target="_blank" class="link-style"><div>TBD repository&nbsp;<span class="fa fa-link"></span></div></a>
-              <a href="https://dl.acm.org/citation.cfm?id=3052569" target="_blank" class="link-style">Original model&nbsp;<span class="fa fa-link"></span></a>
-              <a href="./datasets.html#ml-20m" target="_blank" class="link-style">Dataset&nbsp;<span class="fa fa-link"></span></a>
-            </div>
-                <div id="accordion" class="accordion">
-                    <div class="card mb-0">
-                        <h5 class="card-header collapsed" data-toggle="collapse" href="#collapseRecommendation">Details of Neural Collaborative Filtering</h5>
-                        <div id="collapseRecommendation" class="card-body collapse" data-parent="#accordion" >
-                            <div class="card-block image-content">
-                              <div class="margin-10 gray-border">
-                                  <p class="text-align-center margin-bottom-10">Training curve</p>
-                                  <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/sigmetrics18/training_recommendation.png"/>
-                              </div>
-
-                              <div class="margin-10 gray-border">
-                                  <p class="text-align-center margin-bottom-10">Compute Utilization</p>
-                                  <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/sigmetrics18/occupation_recommendation.png"/>
-                              </div>
-
-                              <div class="margin-10 gray-border">
-                                  <p class="text-align-center margin-bottom-10">FP32 Utilization</p>
-                                  <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/sigmetrics18/utilization_recommendation.png"/>
-                              </div>
-
-                              <div class="margin-10 gray-border">
-                                  <p class="text-align-center margin-bottom-10">Throughput</p>
-                                  <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/sigmetrics18/throughput_recommendation.png"/>
-                              </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <br><br>
-			<div>
-			<h3 id="deep-reinforcement-learning">Deep Reinforcement Learning</h3>
-                <div class="margin-bottom-20">
-
-				Deep neural networks also drive the recent advances in reinforcement learning,
-which have contributed to the creation of the first artificial agents
-to achieve human-level performance across challenging domains,
-such as the game, Go, and various classical computer games. We
-include the A3C algorithm in our benchmark suite, as it has
-become one of the most popular deep reinforcement learning techniques,
-surpassing the DQN training algorithms, and works in both single and distributed machine settings. A3C relies on asynchronously
-updated policy and value function networks trained in
-parallel over several processing threads.
-            </div>
-
-            <div class="links margin-bottom-10 link-container">
-              <a href="https://github.com/tbd-ai/tbd-suite/tree/master/ReinforcementLearning-A3C" target="_blank" class="link-style"><div>TBD repository&nbsp;<span class="fa fa-link"></span></div></a>
-              <a href="https://arxiv.org/pdf/1602.01783.pdf" target="_blank" class="link-style">Original model&nbsp;<span class="fa fa-link"></span></a>
-              <a href="./datasets.html#openai-gym" target="_blank" class="link-style">Dataset&nbsp;<span class="fa fa-link"></span></a>
-            </div>
-                <div id="accordion" class="accordion">
-                    <div class="card mb-0">
-                        <h5 class="card-header collapsed" data-toggle="collapse" href="#collapsA3C">Details of A3C</h5>
-                        <div id="collapsA3C" class="card-body collapse" data-parent="#accordion" >
-                            <div class="card-block image-content">
-                              <div class="margin-10 gray-border">
-                                  <p class="text-align-center margin-bottom-10">Training curve</p>
-                                  <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/sigmetrics18/training_a3c.png"/>
-                              </div>
-
-                              <div class="margin-10 gray-border">
-                                  <p class="text-align-center margin-bottom-10">Compute Utilization</p>
-                                  <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/sigmetrics18/occupation_a3c.png"/>
-                              </div>
-
-							  <div class="margin-10 gray-border">
-                                  <p class="text-align-center margin-bottom-10">FP32 Utilization</p>
-                                  <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/sigmetrics18/utilization_a3c.png"/>
-                              </div>
-
-							  <div class="margin-10 gray-border">
-                                  <p class="text-align-center margin-bottom-10">Throughput</p>
-                                  <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/sigmetrics18/throughput_a3c.png"/>
-                              </div>
-
-                              <div class="margin-10 gray-border">
-                                  <p class="text-align-center margin-bottom-10">Memory breakdown</p>
-                                  <img class="col-md-6 col-xs-12 l margin-bottom-20 max-width-100 text-align-center width-500" src="./images/sigmetrics18/memory_a3c.png"/>
-                              </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-		</div>
+          </div>
+        </div>
         <br><br>
-	</main>
-	<script>w3.includeHTML();</script>
+        <div>
+          <h3 id="speech-recognition">Speech Recognition</h3>
+          <div class="margin-bottom-20">Deep Speech 2 is an end-to-end
+            speech recognition model from Baidu Research. It is able to accurately
+            recognize both English and Mandarin Chinese, two very
+            distant languages, with a unified model architecture and shows
+            great potential for deployment in industry. The Deep Speech 2
+            model contains two convolutional layers, plus seven regular recurrent
+            layers or Gate Recurrent Units (GRUs), unlike the machine translation RNN
+            models included in our benchmark suite, which use LSTM layers.
+          </div>
 
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-		crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
-		integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
-		crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"
-		integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
-		crossorigin="anonymous"></script>
+          <div class="links margin-bottom-10 link-container">
+            <a href="https://github.com/tbd-ai/tbd-suite/tree/master/SpeechRecognition-DeepSpeech2" target="_blank"
+              class="link-style">
+              <div>TBD repository&nbsp;<span class="fa fa-link"></span></div>
+            </a>
+            <a href="https://arxiv.org/abs/1512.02595" target="_blank" class="link-style">Original model&nbsp;<span
+                class="fa fa-link"></span></a>
+            <a href="./datasets.html#librispeech" target="_blank" class="link-style">Dataset&nbsp;<span
+                class="fa fa-link"></span></a>
+          </div>
+          <div id="accordion" class="accordion">
+            <div class="card mb-0">
+              <h5 class="card-header collapsed" data-toggle="collapse" href="#collapseDS2">Details of Deep Speech 2</h5>
+              <div id="collapseDS2" class="card-body collapse" data-parent="#accordion">
+                <div class="card-block image-content">
+                  <div class="margin-10 gray-border">
+                    <p class="text-align-center margin-bottom-10">Throughput</p>
+                    <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500"
+                      src="./images/sigmetrics18/DeepSpeech2-throughput.png" />
+                  </div>
 
-	<script>
-		jQuery(document).ready(function($) {
-			$(".clickable-row").click(function() {
-				window.location = $(this).data("href");
-			});
-		});
-	</script>
+                  <div class="margin-10 gray-border">
+                    <p class="text-align-center margin-bottom-10">Compute Utilization</p>
+                    <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500"
+                      src="./images/sigmetrics18/DeepSpeech2-compute.png" />
+                  </div>
+
+                  <div class="margin-10 gray-border">
+                    <p class="text-align-center margin-bottom-10">FP32 Utilization</p>
+                    <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500"
+                      src="./images/sigmetrics18/DeepSpeech2-FP32-utilization.png" />
+                  </div>
+
+                  <div class="margin-10 gray-border">
+                    <p class="text-align-center margin-bottom-10">FP16 Utilization</p>
+                    <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500"
+                      src="./images/sigmetrics18/DeepSpeech2-FP16-utilization.png" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br><br>
+        <div>
+          <h3 id="adversarial-learning">Generative Adversarial Networks</h3>
+          <div class="margin-bottom-20">A generative adversarial
+            network (GAN) trains two networks: one generator network and
+            one discriminator network. The generator is trained to generate
+            data samples that mimic the real samples, and the discriminator
+            is trained to distinguish whether a data sample is genuine or synthesized.
+            GANs are used, for example, to synthetically generate
+            photographs that look at least superficially authentic to human
+            observers.
+            While GANs are powerful generative models, GAN training
+            suffers from instability. The WGAN model is a milestone that makes
+            great progress towards stable training. Recently Gulrajani et al.
+            proposed an improvement based on the WGAN to enable stable
+            training on a wide range of GAN architectures. We include this
+            model in our benchmark suite, since it is one of the leading DNN
+            algorithms for unsupervised learning.
+          </div>
+
+          <div class="links margin-bottom-10 link-container">
+            <a href="https://github.com/tbd-ai/tbd-suite/tree/master/UnsupervisedLearning-WGAN" target="_blank"
+              class="link-style">
+              <div>TBD repository&nbsp;<span class="fa fa-link"></span></div>
+            </a>
+            <a href="https://arxiv.org/abs/1704.00028" target="_blank" class="link-style">Original model&nbsp;<span
+                class="fa fa-link"></span></a>
+            <a href="./datasets.html#image-net" target="_blank" class="link-style">Dataset&nbsp;<span
+                class="fa fa-link"></span></a>
+          </div>
+          <div id="accordion" class="accordion">
+            <div class="card mb-0">
+              <h5 class="card-header collapsed" data-toggle="collapse" href="#collapseWGAN">Details of WGAN</h5>
+              <div id="collapseWGAN" class="card-body collapse" data-parent="#accordion">
+                <div class="card-block image-content">
+                  <div class="margin-10 gray-border">
+                    <p class="text-align-center margin-bottom-10">Compute Utilization</p>
+                    <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500"
+                      src="./images/sigmetrics18/occupation_wgan.png" />
+                  </div>
+
+                  <div class="margin-10 gray-border">
+                    <p class="text-align-center margin-bottom-10">FP32 Utilization</p>
+                    <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500"
+                      src="./images/sigmetrics18/utilization_wgan.png" />
+                  </div>
+
+                  <div class="margin-10 gray-border">
+                    <p class="text-align-center margin-bottom-10">Throughput</p>
+                    <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500"
+                      src="./images/sigmetrics18/throughput_wgan.png" />
+                  </div>
+
+                  <div class="margin-10 gray-border">
+                    <p class="text-align-center margin-bottom-10">Memory breakdown</p>
+                    <img class="col-md-6 col-xs-12 l margin-bottom-20 max-width-100 text-align-center width-500"
+                      src="./images/sigmetrics18/memory_wgan.png" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br><br>
+        <div>
+          <h3 id="recommendation">Recommendation</h3>
+          <div class="margin-bottom-20">Recommender systems aim to predict user preferences, and are often applied to
+            movies, news, books,
+            and music. Collaborative filtering, a common technique used by these recommender systems, is based
+            on applying users’ previous behaviour to predict future interactions. This recommendation model,
+            named Neural Collaborative Filtering (NCF), makes use of Deep Neural Networks that are trained with
+            user-item interactions. The model uses a combination of a Multi Layer Perceptron, which is a
+            feed-forward neural network with at least three layers, and Generalized Matrix Factorization, which is
+            an extension of the inner product. The inputs to the model are one-hot encodings of both user and item
+            data.
+          </div>
+
+          <div class="links margin-bottom-10 link-container">
+            <a href="https://github.com/tbd-ai/tbd-suite/tree/master/Recommendation-NCF" target="_blank"
+              class="link-style">
+              <div>TBD repository&nbsp;<span class="fa fa-link"></span></div>
+            </a>
+            <a href="https://dl.acm.org/citation.cfm?id=3052569" target="_blank" class="link-style">Original
+              model&nbsp;<span class="fa fa-link"></span></a>
+            <a href="./datasets.html#ml-20m" target="_blank" class="link-style">Dataset&nbsp;<span
+                class="fa fa-link"></span></a>
+          </div>
+          <div id="accordion" class="accordion">
+            <div class="card mb-0">
+              <h5 class="card-header collapsed" data-toggle="collapse" href="#collapseRecommendation">Details of Neural
+                Collaborative Filtering</h5>
+              <div id="collapseRecommendation" class="card-body collapse" data-parent="#accordion">
+                <div class="card-block image-content">
+                  <div class="margin-10 gray-border">
+                    <p class="text-align-center margin-bottom-10">Training curve</p>
+                    <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500"
+                      src="./images/sigmetrics18/training_recommendation.png" />
+                  </div>
+
+                  <div class="margin-10 gray-border">
+                    <p class="text-align-center margin-bottom-10">Compute Utilization</p>
+                    <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500"
+                      src="./images/sigmetrics18/occupation_recommendation.png" />
+                  </div>
+
+                  <div class="margin-10 gray-border">
+                    <p class="text-align-center margin-bottom-10">FP32 Utilization</p>
+                    <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500"
+                      src="./images/sigmetrics18/utilization_recommendation.png" />
+                  </div>
+
+                  <div class="margin-10 gray-border">
+                    <p class="text-align-center margin-bottom-10">Throughput</p>
+                    <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500"
+                      src="./images/sigmetrics18/throughput_recommendation.png" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br><br>
+        <div>
+          <h3 id="deep-reinforcement-learning">Deep Reinforcement Learning</h3>
+          <div class="margin-bottom-20">
+
+            Deep neural networks also drive the recent advances in reinforcement learning,
+            which have contributed to the creation of the first artificial agents
+            to achieve human-level performance across challenging domains,
+            such as the game, Go, and various classical computer games. We
+            include the Minigo in our benchmark suite, which is a minimalist Go engine modeled after AlphaGo Zero, built on MuGo.
+          </div>
+
+          <div class="links margin-bottom-10 link-container">
+            <a href="https://github.com/tbd-ai/tbd-suite/tree/master/ReinforcementLearning-MiniGo/Tensorflow" target="_blank"
+              class="link-style">
+              <div>TBD repository&nbsp;<span class="fa fa-link"></span></div>
+            </a>
+            <a href="https://www.nature.com/articles/nature24270" target="_blank" class="link-style">Original model&nbsp;<span
+                class="fa fa-link"></span></a>
+          </div>
+          <div id="accordion" class="accordion">
+            <div class="card mb-0">
+              <h5 class="card-header collapsed" data-toggle="collapse" href="#collapsA3C">Details of Minigo</h5>
+              <div id="collapsA3C" class="card-body collapse" data-parent="#accordion">
+                <div class="card-block image-content">
+                  <div class="margin-10 gray-border">
+                    <p class="text-align-center margin-bottom-10">Training curve</p>
+                    <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500"
+                      src="./images/sigmetrics18/minigo-tf-trainingcurve.png" />
+                  </div>
+
+                  <div class="margin-10 gray-border">
+                    <p class="text-align-center margin-bottom-10">Throughput</p>
+                    <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500"
+                      src="./images/sigmetrics18/minigo-tf-throughput.png" />
+                  </div>
+
+                  <div class="margin-10 gray-border">
+                    <p class="text-align-center margin-bottom-10">Compute Utilization</p>
+                    <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500"
+                      src="./images/sigmetrics18/minigo-tf-compute.png" />
+                  </div>
+
+                  <div class="margin-10 gray-border">
+                    <p class="text-align-center margin-bottom-10">FP32 Utilization</p>
+                    <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500"
+                      src="./images/sigmetrics18/minigo-tf-FP32.png" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <br><br>
+  </main>
+  <script>w3.includeHTML();</script>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+    integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"
+    integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
+    crossorigin="anonymous"></script>
+
+  <script>
+    jQuery(document).ready(function ($) {
+      $(".clickable-row").click(function () {
+        window.location = $(this).data("href");
+      });
+    });
+  </script>
 
 </body>
+
 </html>
