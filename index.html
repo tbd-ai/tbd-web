@@ -4,12 +4,12 @@
 <head>
 
 	<title>TBD - Training Benchmark for DNNs</title>
-	
+
 	<meta charset="utf-8">
 	<meta name="viewpoint" content="width=device-width, initial-scale=1">
 	<link rel="icon" href="./images/uoft.png">
-	
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" 
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
 		integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="ecosystem.css">
 	<link rel="stylesheet" type="text/css" href="tbd.css">
@@ -28,12 +28,12 @@
 		<div class="container">
 		  <br><br>
 		  <h2>TBD - Training Benchmark for DNNs</h2>
-		  <p>TBD is a new benchmark suite for DNN training that currently covers six major application domains and eight different state-of-the-art models.
-                     The applications in this suite are selected based on extensive conversations with ML developers and users from both industry and academia. 
-                     For all application domains, we select recent models capable of delivering state-of-the-art results.
+		  <p>TBD is a new benchmark suite for DNN training that currently covers seven major application domains and nine different state-of-the-art models.
+                     The applications in this suite were selected based on extensive conversations with ML developers and users from both industry and academia.
+                     For all application domains, we selected recent models capable of delivering state-of-the-art results.
                      We intend to continually expand TBD with new applications and models based on feedback and support from the community.
                   </p>
-                  <p>This is a joint project between the <a href="http://www.cs.toronto.edu/ecosystem/index.html">EcoSystem Research Group</a> at University of Toronto and <a href="https://www.microsoft.com/en-us/research/project/fiddle/">Project Fiddle</a> at Microsoft Research, Redmond. <br> 
+                  <p>This is a joint project between the <a href="http://www.cs.toronto.edu/ecosystem/index.html">EcoSystem Research Group</a> at University of Toronto and <a href="https://www.microsoft.com/en-us/research/project/fiddle/">Project Fiddle</a> at Microsoft Research, Redmond. <br>
                   We also have collaborators from UBC and University of Michigan.
                   </p>
                   <p>Our benchmark suite is now open sourced on <a href="https://github.com/tbd-ai/tbd-suite" target="_blank" class="link-style">Github<span class="fa fa-link"></span></a>.
@@ -43,13 +43,13 @@
 	<div class='wrapper text-center'>
 		<div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
 		  <div class="btn-group margin-left" role="group" aria-label="First group">
-			<button type="button" class="btn btn-secondary" target="_blank" onclick="location.href = 'https://ieeexplore.ieee.org/document/8573476';">Full IISWC Paper</button>
+			<button type="button" class="btn btn-secondary" target="_blank" onclick="location.href = 'http://www.cs.toronto.edu/~serailhydra/publications/tbd-iiswc18.pdf';">Full IISWC Paper</button>
 		  </div>
 		  <div class="btn-group margin-middle" role="group" aria-label="First group">
 			<button type="button" class="btn btn-secondary" target="_blank" data-toggle="modal" data-target="#BibTeXModal">BibTeX Reference</button>
 		  </div>
 		  <div class="btn-group margin-right" role="group" aria-label="Second group">
-			<button type="button" class="btn btn-secondary" target="_blank" onclick="location.href = 'https://www.sysml.cc/doc/2018/167.pdf';">SysML Short Paper</button>
+			<button type="button" class="btn btn-secondary" target="_blank" onclick="location.href = 'http://www.sysml.cc/doc/167.pdf';">SysML Short Paper</button>
 		  </div>
 		</div>
 	</div>
@@ -65,9 +65,12 @@
 		  </div>
 		  <div class="modal-body">
 			If you use our benchmark in your research, please reference us:<br><br>
-			IISWC conference bibtex:<br>
-			@inproceedings{zhu2018benchmarking, 
-title={Benchmarking and analyzing deep neural network training}, author={Zhu, Hongyu and Akrout, Mohamed and Zheng, Bojian and Pelegris, Andrew and Jayarajan, Anand and Phanishayee, Amar and Schroeder, Bianca and Pekhimenko, Gennady}, booktitle={2018 IEEE International Symposium on Workload Characterization (IISWC)}, pages={88--100}, year={2018}, organization={IEEE}
+			arxiv bibtex:<br>
+			@article{zhu2018tbd,
+  title={TBD: Benchmarking and Analyzing Deep Neural Network Training},
+  author={Zhu, Hongyu and Akrout, Mohamed and Zheng, Bojian and Pelegris, Andrew and Phanishayee, Amar and Schroeder, Bianca and Pekhimenko, Gennady},
+  journal={arXiv preprint arXiv:1803.06905},
+  year={2018}
 }
 		  </div>
 		  <div class="modal-footer">
@@ -76,8 +79,8 @@ title={Benchmarking and analyzing deep neural network training}, author={Zhu, Ho
 		</div>
 	  </div>
 	</div>
-	
-	
+
+
 </div>
 <br>
 		  <table class="table table-hover app-table">
@@ -107,6 +110,14 @@ title={Benchmarking and analyzing deep neural network training}, author={Zhu, Ho
 				<td>LSTM<br>Attention</td>
 				<td>TensorFlow, MXNet<br>TensorFlow</td>
 				<td>Bojian Zhang<br>Andrew Pelegris</td>
+			  </tr>
+			  <tr class='clickable-row' data-href='#language-modeling'>
+				<td>Language modeling</td>
+				<td>BERT</td>
+				<td>24</td>
+				<td>Attention</td>
+				<td>PyTorch</td>
+				<td>Xin Li</td>
 			  </tr>
 			  <tr class='clickable-row' data-href='#object-detection'>
 				<td>Object detection</td>
@@ -151,10 +162,10 @@ title={Benchmarking and analyzing deep neural network training}, author={Zhu, Ho
 			</tbody>
 		  </table>
 		<br>
-		<p>(Note that all the following results are generated on Quadro P4000 GPU)</p>
-		
+		<p>(Note that all of the following results were generated on NVIDIA RTX 2080Ti GPU)</p>
+
 		<!-- Details about each model-->
-		<div class="container"> 
+		<div class="container">
             <div>
                 <h3 id="image-classification">Image classification</h3>
                 <div class="margin-bottom-20">Image classification is the archetypal
@@ -180,26 +191,22 @@ title={Benchmarking and analyzing deep neural network training}, author={Zhu, Ho
                                   <p class="text-align-center margin-bottom-10">Training curve</p>
                                   <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/sigmetrics18/training_resnet.png"/>
                               </div>
-                              
+
                               <div class="margin-10 gray-border">
                                   <p class="text-align-center margin-bottom-10">Compute Utilization</p>
                                   <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/sigmetrics18/occupation_resnet.png"/>
                               </div>
-							  
+
 							  <div class="margin-10 gray-border">
                                   <p class="text-align-center margin-bottom-10">FP32 Utilization</p>
                                   <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/sigmetrics18/utilization_resnet.png"/>
                               </div>
-							  
+
 							  <div class="margin-10 gray-border">
                                   <p class="text-align-center margin-bottom-10">Throughput</p>
                                   <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/sigmetrics18/throughput_resnet.png"/>
                               </div>
-                              
-                              <div class="margin-10 gray-border">
-                                  <p class="text-align-center margin-bottom-10">Memory breakdown</p>
-                                  <img class="col-md-6 col-xs-12 l margin-bottom-20 max-width-100 text-align-center width-500" src="./images/sigmetrics18/memory_resnet.png"/>
-                              </div>                            
+
                             </div>
                         </div>
                     </div>
@@ -214,26 +221,21 @@ title={Benchmarking and analyzing deep neural network training}, author={Zhu, Ho
                                   <p class="text-align-center margin-bottom-10">Training curve</p>
                                   <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/sigmetrics18/training_inception.png"/>
                               </div>
-                              
+
                               <div class="margin-10 gray-border">
                                   <p class="text-align-center margin-bottom-10">Compute Utilization</p>
                                   <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/sigmetrics18/occupation_inception.png"/>
                               </div>
-							  
+
 							  <div class="margin-10 gray-border">
                                   <p class="text-align-center margin-bottom-10">FP32 Utilization</p>
                                   <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/sigmetrics18/utilization_inception.png"/>
                               </div>
-							  
+
 							  <div class="margin-10 gray-border">
                                   <p class="text-align-center margin-bottom-10">Throughput</p>
                                   <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/sigmetrics18/throughput_inception.png"/>
                               </div>
-                              
-                              <div class="margin-10 gray-border">
-                                  <p class="text-align-center margin-bottom-10">Memory breakdown</p>
-                                  <img class="col-md-6 col-xs-12 l margin-bottom-20 max-width-100 text-align-center width-500" src="./images/sigmetrics18/memory_inception.png"/>
-                              </div>                            
                             </div>
                         </div>
                     </div>
@@ -275,21 +277,21 @@ alternative to recurrent layers.
                                   <p class="text-align-center margin-bottom-10">Compute Utilization</p>
                                   <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/sigmetrics18/occupation_seq2seq.png"/>
                               </div>
-							  
+
 							  <div class="margin-10 gray-border">
                                   <p class="text-align-center margin-bottom-10">FP32 Utilization</p>
                                   <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/sigmetrics18/utilization_seq2seq.png"/>
                               </div>
-							  
+
 							  <div class="margin-10 gray-border">
                                   <p class="text-align-center margin-bottom-10">Throughput</p>
                                   <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/sigmetrics18/throughput_seq2seq.png"/>
                               </div>
-                              
+
                               <div class="margin-10 gray-border">
                                   <p class="text-align-center margin-bottom-10">Memory breakdown</p>
                                   <img class="col-md-6 col-xs-12 l margin-bottom-20 max-width-100 text-align-center width-500" src="./images/sigmetrics18/memory_seq2seq.png"/>
-                              </div>                            
+                              </div>
                             </div>
                         </div>
                     </div>
@@ -304,40 +306,124 @@ alternative to recurrent layers.
                                   <p class="text-align-center margin-bottom-10">Compute Utilization</p>
                                   <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/sigmetrics18/occupation_transformer.png"/>
                               </div>
-							  
+
 							  <div class="margin-10 gray-border">
                                   <p class="text-align-center margin-bottom-10">FP32 Utilization</p>
                                   <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/sigmetrics18/utilization_transformer.png"/>
                               </div>
-							  
+
 							  <div class="margin-10 gray-border">
                                   <p class="text-align-center margin-bottom-10">Throughput</p>
                                   <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/sigmetrics18/throughput_transformer.png"/>
                               </div>
-                              
+
                               <div class="margin-10 gray-border">
                                   <p class="text-align-center margin-bottom-10">Memory breakdown</p>
                                   <img class="col-md-6 col-xs-12 l margin-bottom-20 max-width-100 text-align-center width-500" src="./images/sigmetrics18/memory_transformer.png"/>
-                              </div>                            
+                              </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <br><br>
+
+
+            <div>
+				<h3 id="language-modeling">Language Modeling</h3>
+                <div class="margin-bottom-20">Language Modeling refers to the task of determining the 
+probability distribution of a sentence or a sequence of works based on the context provided by the
+surround words. Language models analyze a body of text, often represented as sequences of word embedding vectors, to predict
+the likelihood of certain words or phrases. Language models such as BERT and XLNet can greatly improve the accuracy of other
+downstream NLP tasks such as machine translation and question answering. 
+            <br><br>
+This benchmark focuses on BERT(Bidirectional Encoder Representations from Transformers), which is a multi-layer bidirectional Transformer, with only the encoder part. There are many newer LM such as RoBERTa and DistilBERT, but since it architecture has many similarities with
+the original BERT model, we believe the benchmarking results for BERT is representative to many of such transformer based Language Models.
+            <br><br>
+BERT appears in two training settings: pre-training and fine-tuning. The pre-training phase uses an abundance of text from
+sources such as Wikipedia and published books (see the dataset link below), and trains for many epochs. The fine-tuning phase locks
+most of the weights of the BERT model, and attaches a few output layers for the down-stream task, e.g. question-answering. This usually converges really fast since most of the parameters are fixed, as seen in the loss curve in the fine-tuning section.
+            <br><br>
+We perform the benchmark for both FP32 and mixed-precision training, as mixed precision training is commonly seen on BERT
+due to its high computation demand. We also utilize the TensorCores on our RTX2080 Ti device.
+            <br><br>
+Given the large model size of BERT and the size of the dataset, the pre-training takes many days to train even on 
+a high-end Multi-GPU workstation such as the DGX system. Therefore, we decided to skip the complete pre-training of BERT, 
+but still analyze the convergence for 1 epoch. The training suggests that the model is converging properly. 
+The profiling results is based on 500 iterations, and assumes the same compute behavior for each iteration.
+            <br><br>
+
+
+            </div>
+
+            <div class="links margin-bottom-10 link-container">
+              <div>TBD repository:&nbsp;<a href="https://github.com/tbd-ai/tbd-suite/tree/master/LanguageModeling-BERT" target="_blank" class="link-style">BERT&nbsp;<span class="fa fa-link"></span></a>&nbsp;&nbsp;&nbsp;</div>
+              <div>Original models:&nbsp;<a href="https://arxiv.org/abs/1810.04805" target="_blank" class="link-style">BERT&nbsp;<span class="fa fa-link"></span></a>&nbsp;&nbsp;&nbsp;</div>
+              <div>Datasets:&nbsp;<a href="./datasets.html#bert_dataset" target="_blank" class="link-style">Wikipedia/BookCorpus/SQuAD &nbsp;<span class="fa fa-link"></span></a>&nbsp;&nbsp;&nbsp;</div>
+            </div>
+          
+				<div id="accordion" class="accordion">
+                    <div class="card mb-0">
+                        <h5 class="card-header collapsed" data-toggle="collapse" href="#BERT_PT">Details of BERT Pre-training(PyTorch) </h5>
+                        <div id="BERT_PT" class="card-body collapse" data-parent="#accordion" >
+                            <div class="card-block image-content">
+                              <div class="margin-10 gray-border">
+                                  <p class="text-align-center margin-bottom-10">Throughput</p>
+                                  <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/sigmetrics18/throughput_bert_pt.png"/>
+                              </div>
+
+							  <div class="margin-10 gray-border">
+                                  <p class="text-align-center margin-bottom-10">FP16 Core Utilization</p>
+                                  <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/sigmetrics18/core_utilization_bert_pt.png"/>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+             <br>
+             <div id="accordion" class="accordion">
+                    <div class="card mb-0">
+                        <h5 class="card-header collapsed" data-toggle="collapse" href="#BERT_FT">Details of BERT Fine-tuning(PyTorch) </h5>
+                        <div id="BERT_FT" class="card-body collapse" data-parent="#accordion" >
+                            <div class="card-block image-content">
+                              <div class="margin-10 gray-border">
+                                  <p class="text-align-center margin-bottom-10">Training Curve</p>
+                                  <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/sigmetrics18/training_bert_ft.png"/>
+                              </div>
+
+							  <div class="margin-10 gray-border">
+                                  <p class="text-align-center margin-bottom-10">Training Throughput</p>
+                                  <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/sigmetrics18/throughput_bert_ft.png"/>
+                              </div>
+
+							  <div class="margin-10 gray-border">
+                                  <p class="text-align-center margin-bottom-10">FP16 Core Utilization</p>
+                                  <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/sigmetrics18/core_bert_ft.png"/>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br><br>
+            
             <div>
 			<h3 id="object-detection">Object Detection</h3>
-                <div class="margin-bottom-20">Object detection applications, such as
-face detection, are another popular deep learning application and
-can be thought of as an extension of image classification, where
-an algorithm usually first breaks down an image into regions of
-interest and then applies image classification to each region. We
-chose to include Faster R-CNN, which achieves state-of-the-art
-results on the Pascal VOC datasets. A training iteration
-consists of the forward and backward passes of two networks (one
-for identifying regions and one for classification), weight sharing
-and local fine-tuning. The convolution stack in a Faster R-CNN network is usually a standard image classification network, in our
-work: a 101-layer ResNet.
+                <div class="margin-bottom-20">Object detection applications, such as face detection, are another popular deep learning application and
+can be thought of as an extension of image classification, where an algorithm usually first breaks down
+an image into regions of interest and then applies image classification to each region. We chose to
+include Faster R-CNN, which achieves state-of-the-art results on the Pascal VOC datasets, and Mask R-
+CNN, which instead uses the large-scale coco dataset.<br /><br />
+
+A training iteration of Faster R-CNN consists of the forward and backward passes of two networks (one
+for identifying regions and one for classification), weight sharing and local fine-tuning. The convolution
+stack in a Faster R-CNN network is usually a standard image classification network, in our work: a 101-
+layer ResNet.<br /><br />
+
+Mask R-CNN improves on Faster R-CNN by improving the rectangular bounding boxes to a pixel-level
+resolution. This is done in part by adding a branch to the network which outputs whether each pixel
+is part of a given object. We have chosen ResNet-50 as the pre-trained convolution stack for this model.
             </div>
 
             <div class="links margin-bottom-10 link-container">
@@ -374,7 +460,7 @@ distant languages, with a unified model architecture and shows
 great potential for deployment in industry. The Deep Speech 2
 model contains two convolutional layers, plus seven regular recurrent
 layers or Gate Recurrent Units (GRUs), unlike the machine translation RNN
-models included in our benchmark suite, which use LSTM layers..
+models included in our benchmark suite, which use LSTM layers.
             </div>
 
             <div class="links margin-bottom-10 link-container">
@@ -391,21 +477,21 @@ models included in our benchmark suite, which use LSTM layers..
                                   <p class="text-align-center margin-bottom-10">Compute Utilization</p>
                                   <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/sigmetrics18/occupation_DS2.png"/>
                               </div>
-							  
+
 							  <div class="margin-10 gray-border">
                                   <p class="text-align-center margin-bottom-10">FP32 Utilization</p>
                                   <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/sigmetrics18/utilization_DS2.png"/>
                               </div>
-							  
+
 							  <div class="margin-10 gray-border">
                                   <p class="text-align-center margin-bottom-10">Throughput</p>
                                   <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/sigmetrics18/throughput_DS2.png"/>
                               </div>
-                              
+
                               <div class="margin-10 gray-border">
                                   <p class="text-align-center margin-bottom-10">Memory breakdown</p>
                                   <img class="col-md-6 col-xs-12 l margin-bottom-20 max-width-100 text-align-center width-500" src="./images/sigmetrics18/memory_DS2.png"/>
-                              </div>                            
+                              </div>
                             </div>
                         </div>
                     </div>
@@ -415,17 +501,17 @@ models included in our benchmark suite, which use LSTM layers..
 			<div>
 			<h3 id="adversarial-learning">Generative Adversarial Networks</h3>
                 <div class="margin-bottom-20">A generative adversarial
-network (GAN) trains two networks, one generator network and
+network (GAN) trains two networks: one generator network and
 one discriminator network. The generator is trained to generate
 data samples that mimic the real samples, and the discriminator
 is trained to distinguish whether a data sample is genuine or synthesized.
 GANs are used, for example, to synthetically generate
 photographs that look at least superficially authentic to human
 observers.
-While GANs are powerful generative models, GAN training 
-suffers from instability. The WGAN is a milestone as it makes
+While GANs are powerful generative models, GAN training
+suffers from instability. The WGAN model is a milestone that makes
 great progress towards stable training. Recently Gulrajani et al.
-proposes an improvement based on the WGAN to enable stable
+proposed an improvement based on the WGAN to enable stable
 training on a wide range of GAN architectures. We include this
 model in our benchmark suite, since it is one of the leading DNN
 algorithms for unsupervised learning.
@@ -445,35 +531,82 @@ algorithms for unsupervised learning.
                                   <p class="text-align-center margin-bottom-10">Compute Utilization</p>
                                   <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/sigmetrics18/occupation_wgan.png"/>
                               </div>
-							  
+
 							  <div class="margin-10 gray-border">
                                   <p class="text-align-center margin-bottom-10">FP32 Utilization</p>
                                   <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/sigmetrics18/utilization_wgan.png"/>
                               </div>
-							  
+
 							  <div class="margin-10 gray-border">
                                   <p class="text-align-center margin-bottom-10">Throughput</p>
                                   <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/sigmetrics18/throughput_wgan.png"/>
                               </div>
-                              
+
                               <div class="margin-10 gray-border">
                                   <p class="text-align-center margin-bottom-10">Memory breakdown</p>
                                   <img class="col-md-6 col-xs-12 l margin-bottom-20 max-width-100 text-align-center width-500" src="./images/sigmetrics18/memory_wgan.png"/>
-                              </div>                            
+                              </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 			<br><br>
+            <div>
+            <h3 id="recommendation">Recommendation</h3>
+                <div class="margin-bottom-20">Recommender systems aim to predict user preferences, and are often applied to movies, news, books,
+and music. Collaborative filtering, a common technique used by these recommender systems, is based
+on applying users’ previous behaviour to predict future interactions. This recommendation model,
+named Neural Collaborative Filtering (NCF), makes use of Deep Neural Networks that are trained with
+user-item interactions. The model uses a combination of a Multi Layer Perceptron, which is a
+feed-forward neural network with at least three layers, and Generalized Matrix Factorization, which is
+an extension of the inner product. The inputs to the model are one-hot encodings of both user and item
+data.
+            </div>
+
+            <div class="links margin-bottom-10 link-container">
+              <a href="https://github.com/tbd-ai/tbd-suite/tree/master/Recommendation-NCF" target="_blank" class="link-style"><div>TBD repository&nbsp;<span class="fa fa-link"></span></div></a>
+              <a href="https://dl.acm.org/citation.cfm?id=3052569" target="_blank" class="link-style">Original model&nbsp;<span class="fa fa-link"></span></a>
+              <a href="./datasets.html#ml-20m" target="_blank" class="link-style">Dataset&nbsp;<span class="fa fa-link"></span></a>
+            </div>
+                <div id="accordion" class="accordion">
+                    <div class="card mb-0">
+                        <h5 class="card-header collapsed" data-toggle="collapse" href="#collapseRecommendation">Details of Neural Collaborative Filtering</h5>
+                        <div id="collapseRecommendation" class="card-body collapse" data-parent="#accordion" >
+                            <div class="card-block image-content">
+                              <div class="margin-10 gray-border">
+                                  <p class="text-align-center margin-bottom-10">Training curve</p>
+                                  <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/sigmetrics18/training_recommendation.png"/>
+                              </div>
+
+                              <div class="margin-10 gray-border">
+                                  <p class="text-align-center margin-bottom-10">Compute Utilization</p>
+                                  <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/sigmetrics18/occupation_recommendation.png"/>
+                              </div>
+
+                              <div class="margin-10 gray-border">
+                                  <p class="text-align-center margin-bottom-10">FP32 Utilization</p>
+                                  <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/sigmetrics18/utilization_recommendation.png"/>
+                              </div>
+
+                              <div class="margin-10 gray-border">
+                                  <p class="text-align-center margin-bottom-10">Throughput</p>
+                                  <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/sigmetrics18/throughput_recommendation.png"/>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br><br>
 			<div>
 			<h3 id="deep-reinforcement-learning">Deep Reinforcement Learning</h3>
                 <div class="margin-bottom-20">
-				
+
 				Deep neural networks also drive the recent advances in reinforcement learning,
 which have contributed to the creation of the first artificial agents
 to achieve human-level performance across challenging domains,
-such as the game of Go and various classical computer games. We
+such as the game, Go, and various classical computer games. We
 include the A3C algorithm in our benchmark suite, as it has
 become one of the most popular deep reinforcement learning techniques,
 surpassing the DQN training algorithms, and works in both single and distributed machine settings. A3C relies on asynchronously
@@ -495,45 +628,45 @@ parallel over several processing threads.
                                   <p class="text-align-center margin-bottom-10">Training curve</p>
                                   <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/sigmetrics18/training_a3c.png"/>
                               </div>
-                              
+
                               <div class="margin-10 gray-border">
                                   <p class="text-align-center margin-bottom-10">Compute Utilization</p>
                                   <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/sigmetrics18/occupation_a3c.png"/>
                               </div>
-							  
+
 							  <div class="margin-10 gray-border">
                                   <p class="text-align-center margin-bottom-10">FP32 Utilization</p>
                                   <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/sigmetrics18/utilization_a3c.png"/>
                               </div>
-							  
+
 							  <div class="margin-10 gray-border">
                                   <p class="text-align-center margin-bottom-10">Throughput</p>
                                   <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/sigmetrics18/throughput_a3c.png"/>
                               </div>
-                              
+
                               <div class="margin-10 gray-border">
                                   <p class="text-align-center margin-bottom-10">Memory breakdown</p>
                                   <img class="col-md-6 col-xs-12 l margin-bottom-20 max-width-100 text-align-center width-500" src="./images/sigmetrics18/memory_a3c.png"/>
-                              </div>                            
+                              </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-          
+
 		</div>
         <br><br>
 	</main>
 	<script>w3.includeHTML();</script>
 
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" 
-		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" 
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
 		crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" 
-		integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+		integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
 		crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" 
-		integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" 
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"
+		integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
 		crossorigin="anonymous"></script>
 
 	<script>
@@ -543,6 +676,6 @@ parallel over several processing threads.
 			});
 		});
 	</script>
-		
+
 </body>
 </html>
