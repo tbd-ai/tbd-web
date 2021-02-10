@@ -392,7 +392,27 @@
               </div>
             </div>
 
-                <div id="accordion" class="accordion">
+           <br><br>
+	    <div>
+	    <h3 id="machine-translation">Machine Translation</h3>
+		<div class="margin-bottom-20">Unlike image processing, machine
+		translation involves the analysis of sequential data and typically
+		relies on RNNs using LSTM cells as its core algorithm. We select
+		NMT and Sockeye, developed by the TensorFlow and Amazon
+		Web Service teams, respectively, as representative RNN-based
+		models in this area. We also include an implementation of the recently
+		introduced Transformer model, which achieves a new
+		state-of-the-art in translation quality using attention layers as an
+		alternative to recurrent layers.
+	    </div>
+
+            <div class="links margin-bottom-10 link-container">
+		<div>TBD repository:&nbsp;<a href="https://github.com/tbd-ai/tbd-suite/tree/master/MachineTranslation-Seq2Seq/NMT" target="_blank" class="link-style">NMT&nbsp;<span class="fa fa-link"></span></a>&nbsp;&nbsp;&nbsp;<a href="https://github.com/tbd-ai/tbd-suite/tree/master/MachineTranslation-Seq2Seq/Sockeye" target="_blank" class="link-style">Sockeye&nbsp;<span class="fa fa-link"></span></a>&nbsp;&nbsp;&nbsp;<a href="https://github.com/tbd-ai/tbd-suite/tree/master/MachineTranslation-Transformer" target="_blank" class="link-style">Transformer&nbsp;<span class="fa fa-link"></span></a></div>
+		<div>Original models:&nbsp;<a href="https://arxiv.org/abs/1409.0473" target="_blank" class="link-style">Seq2Seq&nbsp;<span class="fa fa-link"></span></a>&nbsp;&nbsp;&nbsp;<a href="https://arxiv.org/abs/1706.03762" target="_blank" class="link-style">Transformer&nbsp;<span class="fa fa-link"></span></a></div>
+		<div>Datasets:&nbsp;<a href="./datasets.html#iwslt" target="_blank" class="link-style">IWSLT&nbsp;<span class="fa fa-link"></span></a>&nbsp;&nbsp;&nbsp;<a href="./datasets.html#wmt" target="_blank" class="link-style">WMT&nbsp;<span class="fa fa-link"></span></a></div>
+	    </div>
+
+	<div id="accordion" class="accordion">
                     <div class="card mb-0">
                         <h5 class="card-header collapsed" data-toggle="collapse" href="#collapseSeq2seq">Details of Seq2Seq</h5>
                         <div id="collapseSeq2seq" class="card-body collapse" data-parent="#accordion" >
@@ -433,8 +453,83 @@
               </div>
             </div>
             <br><br>
-            
+
             <div>
+		<h3 id="language-modeling">Language Modeling</h3>
+		<div class="margin-bottom-20">Language Modeling refers to the task of determining the
+		probability distribution of a sentence or a sequence of works based on the context provided by the
+		surround words. Language models analyze a body of text, often represented as sequences of word embedding vectors, to predict
+		the likelihood of certain words or phrases. Language models such as BERT and XLNet can greatly improve the accuracy of other
+		downstream NLP tasks such as machine translation and question answering.
+	     <br><br>
+		This benchmark focuses on BERT(Bidirectional Encoder Representations from Transformers), which is a multi-layer bidirectional Transformer, with only the encoder part. There are many newer LM such as RoBERTa and DistilBERT, but since it architecture has many similarities with
+		the original BERT model, we believe the benchmarking results for BERT is representative to many of such transformer based Language Models.
+	     <br><br>
+		BERT appears in two training settings: pre-training and fine-tuning. The pre-training phase uses an abundance of text from
+		sources such as Wikipedia and published books (see the dataset link below), and trains for many epochs. The fine-tuning phase locks
+		most of the weights of the BERT model, and attaches a few output layers for the down-stream task, e.g. question-answering. This usually converges really fast since most of the parameters are fixed, as seen in the loss curve in the fine-tuning section.
+	     <br><br>
+		We perform the benchmark for both FP32 and mixed-precision training, as mixed precision training is commonly seen on BERT
+		due to its high computation demand. We also utilize the TensorCores on our RTX2080 Ti device.
+	     <br><br>
+		Given the large model size of BERT and the size of the dataset, the pre-training takes many days to train even on
+		a high-end Multi-GPU workstation such as the DGX system. Therefore, we decided to skip the complete pre-training of BERT,
+		but still analyze the convergence for 1 epoch. The training suggests that the model is converging properly.
+		The profiling results is based on 500 iterations, and assumes the same compute behavior for each iteration.
+             <br><br>
+
+             </div>
+            <div class="links margin-bottom-10 link-container">
+		<div>TBD repository:&nbsp;<a href="https://github.com/tbd-ai/tbd-suite/tree/master/LanguageModeling-BERT" target="_blank" class="link-style">BERT&nbsp;<span class="fa fa-link"></span></a>&nbsp;&nbsp;&nbsp;</div>
+		<div>Original models:&nbsp;<a href="https://arxiv.org/abs/1810.04805" target="_blank" class="link-style">BERT&nbsp;<span class="fa fa-link"></span></a>&nbsp;&nbsp;&nbsp;</div>
+		<div>Datasets:&nbsp;<a href="./datasets.html#bert_dataset" target="_blank" class="link-style">Wikipedia/BookCorpus/SQuAD &nbsp;<span class="fa fa-link"></span></a>&nbsp;&nbsp;&nbsp;</div>
+	    </div>
+		
+	    <div id="accordion" class="accordion">
+		<div class="card mb-0">
+		    <h5 class="card-header collapsed" data-toggle="collapse" href="#BERT_PT">Details of BERT Pre-training(PyTorch) </h5>
+		<div id="BERT_PT" class="card-body collapse" data-parent="#accordion" >
+		    <div class="card-block image-content">
+		        <div class="margin-10 gray-border">
+			    <p class="text-align-center margin-bottom-10">Throughput</p>
+			    <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/sigmetrics18/throughput_bert_pt.png"/>
+			</div>
+			<div class="margin-10 gray-border">
+			    <p class="text-align-center margin-bottom-10">FP16 Core Utilization</p>
+			    <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/sigmetrics18/core_utilization_bert_pt.png"/>
+			</div>
+		    </div>
+		</div>
+	        </div>
+	    </div>
+
+	    <br>
+	    <div id="accordion" class="accordion">
+		<div class="card mb-0">
+		    <h5 class="card-header collapsed" data-toggle="collapse" href="#BERT_FT">Details of BERT Fine-tuning(PyTorch) </h5>
+		    <div id="BERT_FT" class="card-body collapse" data-parent="#accordion" >
+			<div class="card-block image-content">
+			    <div class="margin-10 gray-border">
+				<p class="text-align-center margin-bottom-10">Training Curve</p>
+				<img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/sigmetrics18/training_bert_ft.png"/>
+			    </div>
+
+			    <div class="margin-10 gray-border">
+				<p class="text-align-center margin-bottom-10">Training Throughput</p>
+				<img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/sigmetrics18/throughput_bert_ft.png"/>
+			    </div>
+
+			    <div class="margin-10 gray-border">
+				<p class="text-align-center margin-bottom-10">FP16 Core Utilization</p>
+				<img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500" src="./images/sigmetrics18/core_bert_ft.png"/>
+			    </div>
+			</div>
+		    </div>
+		</div>
+	    </div>
+	    <br><br>
+
+	    <div>
 			<h3 id="object-detection">Object Detection</h3>
                 <div class="margin-bottom-20">Object detection applications, such as face detection, are another popular deep learning application and
 can be thought of as an extension of image classification, where an algorithm usually first breaks down
@@ -503,66 +598,6 @@ is part of a given object. We have chosen ResNet-50 as the pre-trained convoluti
 
 			</div>
             <br><br>
-			<div>
-			<h3 id="speech-recognition">Speech Recognition</h3>
-                <div class="margin-bottom-20">Deep Speech 2 is an end-to-end
-speech recognition model from Baidu Research. It is able to accurately
-recognize both English and Mandarin Chinese, two very
-distant languages, with a unified model architecture and shows
-great potential for deployment in industry. The Deep Speech 2
-model contains two convolutional layers, plus seven regular recurrent
-layers or Gate Recurrent Units (GRUs), unlike the machine translation RNN
-models included in our benchmark suite, which use LSTM layers.
-            </div>
-        <div>
-          <h3 id="object-detection">Object Detection</h3>
-          <div class="margin-bottom-20">Object detection applications, such as face detection, are another popular deep
-            learning application and
-            can be thought of as an extension of image classification, where an algorithm usually first breaks down
-            an image into regions of interest and then applies image classification to each region. We chose to
-            include Faster R-CNN, which achieves state-of-the-art results on the Pascal VOC datasets, and Mask R-
-            CNN, which instead uses the large-scale coco dataset.<br /><br />
-
-            A training iteration of Faster R-CNN consists of the forward and backward passes of two networks (one
-            for identifying regions and one for classification), weight sharing and local fine-tuning. The convolution
-            stack in a Faster R-CNN network is usually a standard image classification network, in our work: a 101-
-            layer ResNet.<br /><br />
-
-            Mask R-CNN improves on Faster R-CNN by improving the rectangular bounding boxes to a pixel-level
-            resolution. This is done in part by adding a branch to the network which outputs whether each pixel
-            is part of a given object. We have chosen ResNet-50 as the pre-trained convolution stack for this model.
-          </div>
-
-          <div class="links margin-bottom-10 link-container">
-            <a href="https://github.com/tbd-ai/tbd-suite/tree/master/ObjectDetection-Faster_RCNN" target="_blank"
-              class="link-style">
-              <div>TBD repository&nbsp;<span class="fa fa-link"></span></div>
-            </a>
-            <a href="https://arxiv.org/abs/1506.01497" target="_blank" class="link-style">Original model&nbsp;<span
-                class="fa fa-link"></span></a>
-            <a href="./datasets.html#voc" target="_blank" class="link-style">Dataset&nbsp;<span
-                class="fa fa-link"></span></a>
-          </div>
-          <div id="accordion" class="accordion">
-            <div class="card mb-0">
-              <h5 class="card-header collapsed" data-toggle="collapse" href="#collapseFasterRCNN">Details of Faster
-                R-CNN</h5>
-              <div id="collapseFasterRCNN" class="card-body collapse" data-parent="#accordion">
-                <i>MXNet results:</i><br>
-                <i>Training quality</i>: 70+% mAP so far<br>
-                <i>Throughtput</i>: 2.29 samples/sec<br>
-                <i>GPU Compute Utilizaiton</i>: 90.29%<br>
-                <i>FP32 Utilization</i>: 70.9%<br><br>
-
-                <i>TensorFlow results:</i><br>
-                <i>Training quality</i>: 65+% mAP so far<br>
-                <i>Throughtput</i>: 2.32 samples/sec<br>
-                <i>GPU Compute Utilizaiton</i>: 89.41%<br>
-                <i>FP32 Utilization</i>: 58.9%%<br>
-              </div>
-            </div>
-          </div>
-        </div>
         <br><br>
         <div>
           <h3 id="speech-recognition">Speech Recognition</h3>
