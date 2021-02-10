@@ -135,14 +135,6 @@
 				<td>TensorFlow, MXNet, PyTorch</td>
 				<td>Cong Wei</td>
 			  </tr>
-			  <tr class='clickable-row' data-href='#recommendation-system'>
-				<td>Recommendation system</td>
-				<td>NCF</td>
-				<td>4</td>
-				<td>GMF, MLP</td>
-				<td>PyTorch</td>
-				<td>Izaak Niksan</td>
-			  </tr>
 			  <tr class='clickable-row' data-href='#adversarial-learning'>
 				<td>Adversarial learning</td>
 				<td>WGAN</td>
@@ -402,11 +394,6 @@ an image into regions of interest and then applies image classification to each 
 include Faster R-CNN, which achieves state-of-the-art results on the Pascal VOC datasets, and Mask R-
 CNN, which instead uses the large-scale coco dataset.<br /><br />
 
-A training iteration of Faster R-CNN consists of the forward and backward passes of two networks (one
-for identifying regions and one for classification), weight sharing and local fine-tuning. The convolution
-stack in a Faster R-CNN network is usually a standard image classification network, in our work: a 101-
-layer ResNet.<br /><br />
-
 Mask R-CNN improves on Faster R-CNN by improving the rectangular bounding boxes to a pixel-level
 resolution. This is done in part by adding a branch to the network which outputs whether each pixel
 is part of a given object. We have chosen ResNet-50 as the pre-trained convolution stack for this model.
@@ -462,7 +449,6 @@ is part of a given object. We have chosen ResNet-50 as the pre-trained convoluti
 			</div>
 
 			</div>
-            <br><br>
         <br><br>
         <div>
           <h3 id="speech-recognition">Speech Recognition</h3>
@@ -576,64 +562,6 @@ is part of a given object. We have chosen ResNet-50 as the pre-trained convoluti
                     <p class="text-align-center margin-bottom-10">Memory breakdown</p>
                     <img class="col-md-6 col-xs-12 l margin-bottom-20 max-width-100 text-align-center width-500"
                       src="./images/sigmetrics18/memory_wgan.png" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <br><br>
-        <div>
-          <h3 id="recommendation">Recommendation</h3>
-          <div class="margin-bottom-20">Recommender systems aim to predict user preferences, and are often applied to
-            movies, news, books,
-            and music. Collaborative filtering, a common technique used by these recommender systems, is based
-            on applying users’ previous behaviour to predict future interactions. This recommendation model,
-            named Neural Collaborative Filtering (NCF), makes use of Deep Neural Networks that are trained with
-            user-item interactions. The model uses a combination of a Multi Layer Perceptron, which is a
-            feed-forward neural network with at least three layers, and Generalized Matrix Factorization, which is
-            an extension of the inner product. The inputs to the model are one-hot encodings of both user and item
-            data.
-          </div>
-
-          <div class="links margin-bottom-10 link-container">
-            <a href="https://github.com/tbd-ai/tbd-suite/tree/master/Recommendation-NCF" target="_blank"
-              class="link-style">
-              <div>TBD repository&nbsp;<span class="fa fa-link"></span></div>
-            </a>
-            <a href="https://dl.acm.org/citation.cfm?id=3052569" target="_blank" class="link-style">Original
-              model&nbsp;<span class="fa fa-link"></span></a>
-            <a href="./datasets.html#ml-20m" target="_blank" class="link-style">Dataset&nbsp;<span
-                class="fa fa-link"></span></a>
-          </div>
-          <div id="accordion" class="accordion">
-            <div class="card mb-0">
-              <h5 class="card-header collapsed" data-toggle="collapse" href="#collapseRecommendation">Details of Neural
-                Collaborative Filtering</h5>
-              <div id="collapseRecommendation" class="card-body collapse" data-parent="#accordion">
-                <div class="card-block image-content">
-                  <div class="margin-10 gray-border">
-                    <p class="text-align-center margin-bottom-10">Training curve</p>
-                    <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500"
-                      src="./images/sigmetrics18/training_recommendation.png" />
-                  </div>
-
-                  <div class="margin-10 gray-border">
-                    <p class="text-align-center margin-bottom-10">Compute Utilization</p>
-                    <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500"
-                      src="./images/sigmetrics18/occupation_recommendation.png" />
-                  </div>
-
-                  <div class="margin-10 gray-border">
-                    <p class="text-align-center margin-bottom-10">FP32 Utilization</p>
-                    <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500"
-                      src="./images/sigmetrics18/utilization_recommendation.png" />
-                  </div>
-
-                  <div class="margin-10 gray-border">
-                    <p class="text-align-center margin-bottom-10">Throughput</p>
-                    <img class="col-md-6 col-xs-12 margin-bottom-20 max-width-100 width-500"
-                      src="./images/sigmetrics18/throughput_recommendation.png" />
                   </div>
                 </div>
               </div>
